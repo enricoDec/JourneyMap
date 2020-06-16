@@ -81,7 +81,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
-            'read_default_file': 'config/db.cnf',
+            'read_default_file': 'config/dbTemplate.cnf',
         },
     }
 }
