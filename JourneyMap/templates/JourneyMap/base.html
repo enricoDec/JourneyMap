@@ -1,7 +1,7 @@
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="">
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -54,30 +54,37 @@
 
             <!-- Navbar Language selector -->
             {% get_current_language as LANGUAGE_CODE %}
-                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                    <input type="hidden" name="next" value="{{ redirect_to }}">
-                    <select name="language" id="" onchange="this.form.submit()">
-                        {% get_available_languages as LANGUAGES %}
-                        {% get_language_info_list for LANGUAGES as languages %}
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input type="hidden" name="next" value="{{ redirect_to }}">
+                <select name="language" id="" onchange="this.form.submit()">
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
 
-                        {% for language in languages %}
-                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
-                                    selected {% endif %}>
-                                {{ language.name_local }} <!-- How do I add an icon here ? GL MARCEL-->
-                            </option>
-                        {% endfor %}
-                    </select>
-                </form>
+                    {% for language in languages %}
+                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
+                                selected {% endif %}>
+                            {{ language.name_local }} <!-- How do I add an icon here ? GL MARCEL-->
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
 
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'JourneyMap_login' %}">{% trans "Sign In" %}</a>
-                <a class="nav-item nav-link" href="{% url 'JourneyMap_register' %}">{% trans "Sign Up" %}</a>
+                <a class="nav-item nav-link" href="{% url 'login' %}">{% trans "Sign In" %}</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}">{% trans "Sign Up" %}</a>
             </div>
         </div>
     </nav>
 </header>
 <div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     {% block content %} {% endblock content %}
 </div>
 
