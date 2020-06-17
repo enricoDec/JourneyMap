@@ -6,9 +6,9 @@ from django.utils.translation import gettext as _
 
 class UserRegister(UserCreationForm):
     email = forms.EmailField()
-    name = forms.CharField()
-    surname = forms.CharField()
+    first_name = forms.CharField(max_length=40)
+    last_name = forms.CharField(max_length=254)
 
     class Meta:
         model = User
-        fields = ['username', _('name'), _('surname'), _('email'), 'password1', 'password2']
+        fields = ['username', _('first_name'), _('last_name'), _('email'), 'password1', 'password2']
