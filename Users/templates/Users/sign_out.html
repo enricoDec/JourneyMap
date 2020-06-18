@@ -2,8 +2,8 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
-    <h1>{% trans 'You have been succefully logged out!' %}</h1>
-    <div class="border-top pt-3">
+    <div class="content-section">
+        <h1>{% trans 'You have been succefully logged out!' %}</h1>
         <small class="text-muted">
             <a class="" href="{% url 'login' %}">{% trans 'Log In Again' %}</a>
         </small>
