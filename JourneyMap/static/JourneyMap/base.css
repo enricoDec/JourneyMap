@@ -1,0 +1,89 @@
+:root {
+    --header-height: 56px;
+    --footer-height: 81px;
+    --footer-wrap-height: 107px;
+
+    //overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: #343a40 !important;
+}
+
+header nav {
+    margin: 0 auto;
+    padding: 8px 0px 8px 0px !important;
+    width: 80%;
+}
+
+main {
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+footer {
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    display: block;
+}
+
+footer:after {
+    clear: both;
+}
+
+footer p {
+    float: left;
+}
+
+footer div {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: right;
+}
+
+footer div a {
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    color: #212529;
+}
+
+footer div a:first-child {
+    padding-left: 0;
+}
+
+footer div a:hover {
+    color: #212529;
+}
+
+@media (max-width: 992px) {
+    header nav, main, footer {
+        width: 90%;
+    }
+
+    main {
+        min-height: calc(100vh - var(--header-height) - var(--footer-wrap-height));
+    }
+
+    footer {
+        padding-bottom: 10px;
+    }
+
+    footer p, footer div {
+        float: none;
+    }
+}
