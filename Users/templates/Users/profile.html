@@ -6,10 +6,12 @@
 {% block content %}
     <div class="m-5 content-section">
         <div class="media">
-            <img class="account-img" src="{{ user.profile.image.url }}">
+            <img class="account-img rounded-circle" src="{{ user.profile.image.url }}">
             <div class="media-body">
                 <h2 class="account-heading">{{ user.username }}</h2>
                 <p class="text-secondary">{{ user.email }}</p>
+                <p class="text-secondary">{{ user.last_name }}</p>
+                <p class="text-secondary">{{ user.first_name }}</p>
             </div>
         </div>
         <!-- Profile form -->
