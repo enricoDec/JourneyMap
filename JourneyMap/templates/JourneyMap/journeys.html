@@ -1,12 +1,24 @@
-{% extends "JourneyMap/base.html"%}
+{% extends "JourneyMap/base.html" %}
 {% load static %}
 {% load i18n %}
 {% block content %}
-    <h1>{% trans "Journeys" %}</h1>
+    <a class="button" href="{% url 'JourneyMap_journeys_new' %}">{% trans 'New Journey' %}</a>
     {% for journey in journeys %}
-        <h1>{{ journey.title }}</h1>
-        <h1>{{ journey.date_posted|date:"F d, Y"}}</h1>
-        <img src="{% static 'JourneyMap/IMG_6244.JPG' %}" height="720" width="">
-        <h1>{{ journey.user }}</h1>
+        <div class="media content-section">
+            <div class="media-body">
+                <div class="article-title">
+                    <h1>{{ journey.title }}</h1>
+                </div>
+                <div class="article-metadata">
+                    <h1>{{ journey.user }}</h1>
+                    <p class="datetime">{{ journey.date_posted|date:"F d, Y" }}</p>
+                </div>
+                {% for image in images %}
+                    <div class="article-img">
+                        <img src="{{ image.image.url }}" height="100" width="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     {% endfor %}
 {% endblock content %}
