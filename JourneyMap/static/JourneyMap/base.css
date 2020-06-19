@@ -26,11 +26,11 @@ header nav {
     width: 80%;
 }
 
-header nav button:active span {
+header nav .navbar-toggler:active span {
     -webkit-animation: rotation-back 0.2s  linear;
 }
 
-header nav button.collapsed:active span {
+header nav .navbar-toggler.collapsed:active span {
     -webkit-animation: rotation 0.2s  linear;
 }
 
