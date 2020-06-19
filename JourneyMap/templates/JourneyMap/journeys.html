@@ -15,8 +15,8 @@
                 <div class="article-title">
                     <h1>{{ journey.title }}</h1>
                 </div>
-                <div class="article-metadata">
-                    <h1>{{ journey.user }}</h1>
+                <div class="article-metadata small">
+                    <h2>{{ journey.user }}</h2>
                     <p class="datetime">{{ journey.date_posted|date:"F d, Y" }}</p>
                 </div>
                 {% for image in images %}

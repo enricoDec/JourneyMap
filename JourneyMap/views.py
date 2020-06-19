@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.utils.translation import gettext as _
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DeleteView
 
 from .forms import ImageForm
 from .models import Journey, Image
@@ -46,6 +46,12 @@ class JourneyCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user_id = self.request.user.id
         return super(JourneyCreateView, self).form_valid(form)
+
+
+class JourneyDeleteView(LoginRequiredMixin, DeleteView):
+    model = Journey
+    template_name = 'JourneyMap/journey_delete.html'
+    success_url = ''
 
 
 class ImageCreateView(LoginRequiredMixin, CreateView):
