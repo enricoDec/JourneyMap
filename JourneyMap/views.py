@@ -1,8 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.utils.translation import gettext as _
-from .models import Journey, Image
 from django.views.generic import ListView, CreateView
+
+from .forms import ImageForm
+from .models import Journey, Image
 
 
 def home(request):
@@ -46,10 +48,19 @@ class JourneyCreateView(LoginRequiredMixin, CreateView):
         return super(JourneyCreateView, self).form_valid(form)
 
 
-# Need to filter journeys
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
-    fields = ['journey', 'title', 'image']
+    form_class = ImageForm
+    # fields = ['journey', 'title', 'image']
     template_name = 'JourneyMap/image_form.html'
     success_url = ''
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user.id
+        return kwargs
+
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['form'].fields['journey'].queryset = Journey.objects.filter(user_id=self.request.user.id)
+    #     return context

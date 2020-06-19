@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from PIL import Image as img
 
 
 # Journey model each journey has a user, title and creation date
@@ -36,3 +37,17 @@ class Image(models.Model):
             return self.title.__str__()
         else:
             return self.id.__str__()
+
+    def get_absolute_url(self):
+        return reverse('JourneyMap_journeys')
+
+    def save(self, *args, **kwargs):
+        super(Image, self).save()
+        image = img.open(self.image.path)
+
+        # Resize Profile Pic if too big
+        if image.height > 1920 or image.width > 1080:
+            output_size = (1920, 1080)
+            image.thumbnail(output_size)
+            image.save(self.image.path)
+

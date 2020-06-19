@@ -2,8 +2,13 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
-    <a class="button" href="{% url 'JourneyMap_journeys_new' %}">{% trans 'New Journey' %}</a>
-    <a class="button" href="{% url 'JourneyMap_journeys_new_image' %}">{% trans 'Upload Image' %}</a>
+
+    <div class="mt-4 mb-4">
+        <a class="btn btn-primary" role="button"
+           href="{% url 'JourneyMap_journeys_new' %}">{% trans 'New Journey' %}</a>
+        <a class="btn btn-primary" role="button"
+           href="{% url 'JourneyMap_journeys_new_image' %}">{% trans 'Upload Image' %}</a>
+    </div>
     {% for journey in journeys %}
         <div class="media content-section">
             <div class="media-body">
@@ -15,9 +20,11 @@
                     <p class="datetime">{{ journey.date_posted|date:"F d, Y" }}</p>
                 </div>
                 {% for image in images %}
-                    <div class="article-img">
-                        <img src="{{ image.image.url }}" height="100" width="">
-                    </div>
+                    {% if image.journey == journey %}
+                        <div class="article-img">
+                            <img src="{{ image.image.url }}" height="100" width="">
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
