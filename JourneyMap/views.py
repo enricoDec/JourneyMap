@@ -26,7 +26,7 @@ class JourneyListView(LoginRequiredMixin, ListView):
     ordering = ['-date_posted']
 
     def get_queryset(self):
-        self.model = Journey.objects.filter(user=self.request.user.id)
+        self.model = Journey.objects.filter(user_id=self.request.user.id)
         return self.model
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -44,4 +44,12 @@ class JourneyCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user_id = self.request.user.id
         return super(JourneyCreateView, self).form_valid(form)
+
+
+# Need to filter journeys
+class ImageCreateView(LoginRequiredMixin, CreateView):
+    model = Image
+    fields = ['journey', 'title', 'image']
+    template_name = 'JourneyMap/image_form.html'
+    success_url = ''
 

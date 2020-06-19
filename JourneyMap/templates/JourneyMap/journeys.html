@@ -3,6 +3,7 @@
 {% load i18n %}
 {% block content %}
     <a class="button" href="{% url 'JourneyMap_journeys_new' %}">{% trans 'New Journey' %}</a>
+    <a class="button" href="{% url 'JourneyMap_journeys_new_image' %}">{% trans 'Upload Image' %}</a>
     {% for journey in journeys %}
         <div class="media content-section">
             <div class="media-body">
