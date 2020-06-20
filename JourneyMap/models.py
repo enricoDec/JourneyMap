@@ -21,6 +21,7 @@ class Journey(models.Model):
         return reverse('JourneyMap_journeys')
 
 
+# TODO: ID not auto increment
 # Each image corresponds to a Journey
 # Image has all the metadata and file path to the image
 class Image(models.Model):
