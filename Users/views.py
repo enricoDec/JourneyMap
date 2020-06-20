@@ -1,6 +1,7 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.utils.translation import gettext as _
-from django.contrib import messages
+
 from .forms import UserRegister
 
 
@@ -27,10 +28,3 @@ def sign_up(request):
         'form': form
     }
     return render(request, 'Users/sign_up.html', context)
-
-"""
-messages.debug
-messages.info
-messages.success
-messages.error
-"""
