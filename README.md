@@ -7,8 +7,8 @@ A Web Application that creates a "Journey Map" from pictures.
  - Translation
 - Registration
 - Contact Form (with email)
-- User-managment (login, Auth, Pwd-Reset)
-- Profile
+- User-managment (login, Auth)
+- Profile (Pwd-Reset)
 - Journeys (model)
 - Forgot Password?
 - CDP
