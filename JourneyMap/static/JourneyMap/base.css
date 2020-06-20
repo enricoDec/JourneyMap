@@ -39,10 +39,19 @@ header nav button:focus {
     box-shadow: none;
 }
 
+header .nav-item.dropdown:hover > .dropdown-menu {
+    margin: 0;
+    display: block;
+}
+
+header .nav-item.dropdown:hover a::after {
+    transform: rotate(180deg);
+}
+
 main {
-    margin: 0 auto;
+    margin: 0 !important;
     padding: 0;
-    width: 80%;
+    width: 100%;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
@@ -84,8 +93,17 @@ footer div a:hover {
 }
 
 @media (max-width: 992px) {
-    header nav, main, footer {
+    header nav, footer {
         width: 90%;
+    }
+
+    header .nav-item.dropdown > .dropdown-menu {
+        margin: 0;
+        display: none !important;
+    }
+
+    header .nav-item.dropdown a::after {
+        display: none;
     }
 
     main {
