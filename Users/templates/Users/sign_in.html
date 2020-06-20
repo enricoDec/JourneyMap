@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
-    <div class="m-md-5">
+    <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -12,6 +12,12 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">{% trans 'Login' %}</button>
+            </div>
+            <div>
+                <small class="text-muted">
+                    {% trans 'Forgot your password ?' %}
+                    <a class="ml-2" href="{% url 'password_reset' %}">{% trans 'Reset Password' %}</a>
+                </small>
             </div>
         </form>
         <div class="border-top pt-3">
