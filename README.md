@@ -2,32 +2,31 @@
 # JourneyMap
 A Web Application that creates a "Journey Map" from pictures.
 
-# Pull Request List:
- - Header - Footer (Home, Impressum, etc...)
- - Translation
-- Registration
-- Contact Form (with email)
-- User-managment (login, Auth)
+# Branches/Features List:
+- Header-Footer (Home, Impressum, Navbar, Footer)
+- Translation (Language Picker in Navbar, change language feature)
+- Registration (Sign Up, Custom User Model, email authentication)
+- Contact Form (sends contact form per email)
+- User-managment (Login, Change Password)
+- Profile (Profile picture, Profile View (Merge Change Password View with Profile View))
 - Pwd Reset (Forgot your password with email)
-- Profile (change password, profile picture)
-- Journeys (model)
-- Forgot Password?
-- CDP
-- Image API
-- Journeys (create, view)
-- Journey(image upload, etc..)
-- Journey Map
+- Journey (MVT, Journey and Image Model(Single Journey View))
+- Journeys (View (List View with all User Journeys))
+- CDP (Content delivery provider ("hide" image location and file structure)
+- Image API (Read Exif Data from images)
+- Journey Map 
 - Share Journey
 
 # Features
 
 ### Leichte Features:
 
--   Header + Footer…
+-   Header-Footer (Home, Impressum, Navbar, Footer)
+
+-   Translation (Language Picker in Navbar, change language feature)
     
--   Profil
+-   Profile (Profile picture, Profile View (Merge Change Password View with Profile View))
     
--   Mehrsprachig
     
 -   Bilder verwalten
     
@@ -36,19 +35,25 @@ A Web Application that creates a "Journey Map" from pictures.
 
 ### Mittlere Features:
 
--   Registrierung mit Confirmation-Mail
+- Registration (Sign Up, Custom User Model, email authentication)
     
--   Auth, Login, Register, Pwd-Reset (User admin)
+- Contact Form (sends contact form per email)
     
--   Teilen durch Nutzernameneingabe + Namen merken
-    
--   Kontaktformular im Impressum
-    
+- User-managment (Login, Change Password)
 
+- Pwd Reset (Forgot your password with email)
+
+- Journey (MVT, Journey and Image Model(Single Journey View))
+
+- Journeys (View (List View with all User Journeys))
+
+- CDP (Content delivery provider ("hide" image location and file structure)
   
 
 ### Schwere Features:
 
--   Metadaten lesen, manipulieren und auswerten
-    
--   Bilder in eine Karte einbinden
+- Image API (Read Exif Data from images)
+
+- Journey Map 
+
+- Share Journey
