@@ -91,12 +91,12 @@ msgstr "Crea Viaggi e carica immagini."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
 #| msgid "My Journey"
-msgid "Review your Journeys"
+msgid "Recall your Journeys"
 msgstr "Rivedi i tuoi viaggi"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
 #| msgid "Review your journeys on an interactive world map."
-msgid "Review your journeys on an interactive world map."
+msgid "View your journeys on an interactive world map."
 msgstr "Rivedi i tuoi viaggi su una cartina interattiva."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:31
