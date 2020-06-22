@@ -37,26 +37,26 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-                <div class="collapse navbar-collapse" id="navbarsExample05">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'JourneyMap_home' %}">{% trans "Home" %} <span
-                                    class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'JourneyMap_contact_us' %}">{% trans "Contact Us" %}</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-hover="dropdown"
-                               aria-haspopup="true"
-                               aria-expanded="false">{% trans "My Journey" %}</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                <a class="dropdown-item" href="#">{% trans "Berlin-Rom" %}</a>
-                                <a class="dropdown-item" href="#">{% trans "Rom-Paris" %}</a>
-                                <a class="dropdown-item" href="#">{% trans "Berlin-Spain" %}</a>
-                            </div>
-                        </li>
-                    </ul>
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'JourneyMap_home' %}">{% trans "Home" %} <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'JourneyMap_contact_us' %}">{% trans "Contact Us" %}</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-hover="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">{% trans "My Journey" %}</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown05">
+                        <a class="dropdown-item" href="#">{% trans "Berlin-Rom" %}</a>
+                        <a class="dropdown-item" href="#">{% trans "Rom-Paris" %}</a>
+                        <a class="dropdown-item" href="#">{% trans "Berlin-Spain" %}</a>
+                    </div>
+                </li>
+            </ul>
 
             <!-- Navbar Language selector -->
             {% get_current_language as LANGUAGE_CODE %}
@@ -93,11 +93,9 @@
                 </div>
             {% endfor %}
         {% endif %}
-        {% block content %} {% endblock content %}
     </div>
     {% block content %} {% endblock content %}
 </main>
-
 <footer>
     <hr>
     <!-- Navbar Language selector -->
@@ -117,7 +115,6 @@
             {% endfor %}
         </select>
     </form>
-    <hr>
     <p>&copy My Journey 2020-2020</p>
     <div class="">
         <a href="">{% trans "Privacy Policy" %}</a>

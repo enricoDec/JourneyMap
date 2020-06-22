@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-21 16:10+0200\n"
+"POT-Creation-Date: 2020-06-22 14:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,54 +18,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:41 .\JourneyMap\views.py:7
+#: .\JourneyMap\templates\JourneyMap\base.html:43 .\JourneyMap\views.py:7
 msgid "Home"
 msgstr "Home"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:45
-#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:28
+#: .\JourneyMap\templates\JourneyMap\base.html:47
+#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:14
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:50
+#: .\JourneyMap\templates\JourneyMap\base.html:52
 msgid "My Journey"
 msgstr "Meine Reise"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:52
+#: .\JourneyMap\templates\JourneyMap\base.html:54
 #, fuzzy
 #| msgid "Berlin-Rome"
 msgid "Berlin-Rom"
 msgstr "Berlin-Rom"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:53
+#: .\JourneyMap\templates\JourneyMap\base.html:55
 #, fuzzy
 #| msgid "Rome-Paris"
 msgid "Rom-Paris"
 msgstr "Rom-Paris"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:54
+#: .\JourneyMap\templates\JourneyMap\base.html:56
 msgid "Berlin-Spain"
 msgstr "Berlin-Spanien"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:79 .\JourneyMap\views.py:14
+#: .\JourneyMap\templates\JourneyMap\base.html:81
+#: .\Users\templates\Users\sign_up.html:21 .\Users\views.py:9
 msgid "Sign In"
 msgstr "Anmelden"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:80 .\JourneyMap\views.py:21
+#: .\JourneyMap\templates\JourneyMap\base.html:82
+#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:26
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:109
+#: .\JourneyMap\templates\JourneyMap\base.html:120
 msgid "Privacy Policy"
 msgstr "Datenschutzrichtlinie"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:110
+#: .\JourneyMap\templates\JourneyMap\base.html:121
 msgid "Legal Disclosures"
 msgstr "Rechtliche Angaben"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:111
+#: .\JourneyMap\templates\JourneyMap\base.html:122
 msgid "."
-msgstr ""
+msgstr "."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:14
 msgid "Description"
@@ -80,34 +82,56 @@ msgid "FEATURES"
 msgstr "EIGENSCHAFTEN"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:23
-#| msgid "My Journey"
 msgid "Create Journeys"
 msgstr "Meine Reise"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:23
-#| msgid "Create journeys and upload images."
 msgid "Create journeys and upload images."
 msgstr "Erstellen Sie Reisen und laden Sie Bilder hoch."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#| msgid "My Journey"
 msgid "Review your Journeys"
 msgstr "Sehen Sie Ihre Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#| msgid "Review your journeys on an interactive world map."
 msgid "Review your journeys on an interactive world map."
 msgstr "Sehen Sie Ihre Reisen in eine interaktive Karte."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:31
-#| msgid "My Journey"
 msgid "Share Journeys"
 msgstr "Teilen Sie Ihre Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:31
-#| msgid "Share your journeys with other people."
 msgid "Share your journeys with other people."
 msgstr "Teilen Sie Ihre Reisen mit andere Leute."
+
+#: .\Users\forms.py:8
+msgid "Email"
+msgstr "Email"
+
+#: .\Users\forms.py:8
+msgid "Please enter a valid Email"
+msgstr "Bitte geben Sie eine gültige Email-Adresse ein"
+
+#: .\Users\forms.py:9
+msgid "Name"
+msgstr "Name"
+
+#: .\Users\forms.py:10
+msgid "Surname"
+msgstr "Nachname"
+
+#: .\Users\templates\Users\sign_up.html:11
+msgid "Register"
+msgstr "Registrieren"
+
+#: .\Users\templates\Users\sign_up.html:20
+msgid "Already have an Account ?"
+msgstr "Haben Sie bereits ein Konto?"
+
+#: .\Users\views.py:20
+msgid "Account created for"
+msgstr "Konto erstellt für"
 
 #~ msgid "Contacts"
 #~ msgstr "Kontakte"

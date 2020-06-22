@@ -1,14 +1,14 @@
 from django import forms
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.utils.translation import gettext as _
+from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 
 
 class UserRegister(UserCreationForm):
-    email = forms.EmailField()
-    name = forms.CharField()
-    surname = forms.CharField()
+    email = forms.EmailField(label=_(u'Email'), help_text=_(u'Please enter a valid Email'))
+    name = forms.CharField(label=_(u'Name'))
+    surname = forms.CharField(label=_(u'Surname'))
 
     class Meta:
         model = User
-        fields = ['username', _('name'), _('surname'), _('email'), 'password1', 'password2']
+        fields = ['username', 'name', 'surname', 'email', 'password1', 'password2']
