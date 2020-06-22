@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-21 16:10+0200\n"
+"POT-Creation-Date: 2020-06-23 00:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,32 +80,30 @@ msgid "FEATURES"
 msgstr "CARATTERISTICHE"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:23
-#| msgid "My Journey"
 msgid "Create Journeys"
 msgstr "Crea Viaggi"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:23
-#| msgid "Create journeys and upload images."
 msgid "Create journeys and upload images."
 msgstr "Crea Viaggi e carica immagini."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#| msgid "My Journey"
-msgid "Recall your Journeys"
-msgstr "Rivedi i tuoi viaggi"
+#, fuzzy
+#| msgid "Recall your Journeys"
+msgid "Relive your Journeys"
+msgstr "Rivivi i tuoi viaggi"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#| msgid "Review your journeys on an interactive world map."
-msgid "View your journeys on an interactive world map."
-msgstr "Rivedi i tuoi viaggi su una cartina interattiva."
+#, fuzzy
+#| msgid "View your journeys on an interactive world map."
+msgid "Relive your journeys on an interactive world map."
+msgstr "Rivivi i tuoi viaggi su una cartina interattiva."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:31
-#| msgid "My Journey"
 msgid "Share Journeys"
 msgstr "Condividi i tuoi viaggi"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:31
-#| msgid "Share your journeys with other people."
 msgid "Share your journeys with other people."
 msgstr "Condividi i tuoi viaggi con altre persone."
 
