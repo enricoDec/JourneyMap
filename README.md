@@ -21,14 +21,13 @@ A Web Application that creates a "Journey Map" from pictures.
 
 ### Leichte Features:
 
--   Header-Footer (Home, Impressum, Navbar, Footer)
 
--   Translation (Language Picker in Navbar, change language feature)
+-   Header-Footer (Home, Impressum, Navbar, Footer) (**Marcel**)
+
+-   Translation (Language Picker in Navbar, change language feature) (**Marcel**)
     
--   Profile (Profile picture, Profile View (Merge Change Password View with Profile View))
-    
-    
--   Bilder verwalten
+-   Profile (Profile picture, Profile View (Merge Change Password View with Profile View)) (**Enrico**)
+
     
 
   
