@@ -140,6 +140,7 @@ LANGUAGES = [
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 AUTH_USER_MODEL = 'Users.User'
+AUTHENTICATION_BACKENDS = ['Users.backend.EmailBackend']
 
 STATIC_URL = '/static/'
 

@@ -1,18 +1,15 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.utils.translation import gettext as _
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
+
 from .forms import UserRegister
-from django.contrib.auth.decorators import login_required
 
 
-#
-# def sign_in(request):
-#     context = {
-#         'title': _('Sign In')
-#     }
-#     return render(request, 'Users/sign_in.html', context)
-
-
+@never_cache
+@csrf_protect
 def sign_up(request):
     if request.method == 'POST':
         form = UserRegister(request.POST)
@@ -32,6 +29,8 @@ def sign_up(request):
 
 
 @login_required
+@never_cache
+@csrf_protect
 def profile(request):
     context = {
         'title': _('Profile'),

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils.translation import gettext as _
-from .models import Journey
+# from .models import Journey
 
 
 def home(request):
@@ -17,9 +17,9 @@ def contact(request):
     return render(request, 'JourneyMap/contact_us.html', context)
 
 
-def journeys(request):
-    context = {
-        'title': _('Journeys'),
-        'journeys': Journey.objects.all()
-    }
-    return render(request, 'JourneyMap/journeys.html', context)
+# def journeys(request):
+#     context = {
+#         'title': _('Journeys'),
+#         'journeys': Journey.objects.all()
+#     }
+#     return render(request, 'JourneyMap/journeys.html', context)
