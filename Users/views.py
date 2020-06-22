@@ -1,6 +1,6 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.utils.translation import gettext as _
-from django.contrib import messages
 from .forms import UserRegister
 from django.contrib.auth.decorators import login_required
 
@@ -19,7 +19,7 @@ def sign_up(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, _(f'Account created for {username}! You can now log in'))
+            messages.success(request, _('Account created for') + ' ' + f'{username}')
             return redirect('login')
     else:
         form = UserRegister()
