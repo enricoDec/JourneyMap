@@ -34,25 +34,25 @@ A Web Application that creates a "Journey Map" from pictures.
 
 ### Mittlere Features:
 
-- Registration (Sign Up, Custom User Model, email authentication)
+- Registration (Sign Up, Custom User Model, email authentication) (**Enrico**)
     
-- Contact Form (sends contact form per email)
+- Contact Form (sends contact form per email) (**Enrico**)
     
-- User-managment (Login, Change Password)
+- User-managment (Login, Change Password) (**Marcel**)
 
-- Pwd Reset (Forgot your password with email)
+- Pwd Reset (Forgot your password with email) (**Enrico**)
 
-- Journey (MVT, Journey and Image Model(Single Journey View))
+- Journey (MVT, Journey and Image Model(Single Journey View)) (**Enrico**)
 
-- Journeys (View (List View with all User Journeys))
+- Journeys (View (List View with all User Journeys)) (**Enrico**)
 
-- CDP (Content delivery provider ("hide" image location and file structure)
+- CDP (Content delivery provider ("hide" image location and file structure) (**Marcel**)
   
 
 ### Schwere Features:
 
-- Image API (Read Exif Data from images)
+- Image API (Read Exif Data from images) (**Enrico**)
 
-- Journey Map 
+- Journey Map (**Marcel**)
 
-- Share Journey
+- Share Journey (**Marcel**)
