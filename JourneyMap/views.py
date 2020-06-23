@@ -1,6 +1,6 @@
 from django.contrib import messages
-from django.core import mail
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core import mail
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -12,8 +12,12 @@ from .models import Journey, Image
 
 
 def home(request):
+    journeys = None
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user)
     context = {
-        'title': _('Home')
+        'title': _('Home'),
+        'journeys': journeys,
     }
     return render(request, 'JourneyMap/home.html', context)
 
@@ -57,9 +61,14 @@ def contact(request):
     else:
         form = ContactForm
 
+    journeys = None
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user)
+
     context = {
         'title': _('Contact Us'),
-        'form': form
+        'form': form,
+        'journeys': journeys
     }
     return render(request, 'JourneyMap/contact_us.html', context)
 
