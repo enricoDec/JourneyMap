@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # third party
     'crispy_forms',
+    'six',
 
     # own
     'JourneyMap.apps.JourneymapConfig',
@@ -134,11 +135,13 @@ LANGUAGES = [
     ('en', 'English'),
     ('de', 'Deutsch'),
     ('it', 'Italiano'),
-    ('es', 'Español'),
 ]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+AUTH_USER_MODEL = 'Users.User'
+AUTHENTICATION_BACKENDS = ['Users.backend.EmailBackend']
 
 STATIC_URL = '/static/'
 
@@ -154,3 +157,8 @@ DEFAULT_FROM_EMAIL = mail.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = mail.EMAIL_HOST_PASSWORD
 EMAIL_PORT = mail.EMAIL_PORT
 EMAIL_USE_TLS = mail.EMAIL_USE_TLS
+
+PASSWORD_RESET_TIMEOUT_DAYS = 2
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

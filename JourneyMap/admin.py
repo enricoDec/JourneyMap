@@ -1,5 +1,4 @@
-from django.contrib import admin
-from .models import Journey
+# from .models import Journey
 
-admin.site.register(Journey)
+# admin.site.register(Journey)
 

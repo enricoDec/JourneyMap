@@ -14,6 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'JourneyMap/bootstrap.css' %}">
 
+    <!-- Own core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'Users/base.css' %}">
 
     {% if title %}
         <title>Journey Map - {{ title }}</title>
@@ -22,9 +24,18 @@
     {% endif %}
 </head>
 <body>
-<div class="container">
+<main>
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
     {% block content %} {% endblock content %}
-</div>
+</main>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

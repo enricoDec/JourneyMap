@@ -1,5 +1,19 @@
-{% extends "JourneyMap/base.html"%}
+{% extends "JourneyMap/base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 {% load i18n %}
+{% load static %}
 {% block content %}
-    <h1>{% trans "Contact Us" %}</h1>
+    <div class="m-md-5">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{% trans 'Contact Us' %}</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">{% trans 'Send' %}</button>
+            </div>
+        </form>
+    </div>
 {% endblock content %}

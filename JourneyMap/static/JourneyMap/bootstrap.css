@@ -1299,6 +1299,14 @@ pre code {
         order: 4;
     }
 
+    .content-section {
+        background: #ffffff;
+        padding: 10px 20px;
+        border: 1px solid #dddddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
     .order-md-5 {
         -ms-flex-order: 5;
         order: 5;
