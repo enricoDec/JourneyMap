@@ -17,7 +17,6 @@ from config import mail
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -28,7 +27,6 @@ SECRET_KEY = 'ezs!jwevqt%9u9l^un272i6ndr*=7@(+w0ro_ome$exs(d48*n'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -42,6 +40,7 @@ INSTALLED_APPS = [
 
     # third party
     'crispy_forms',
+    'six',
 
     # own
     'JourneyMap.apps.JourneymapConfig',
@@ -81,7 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'WebApplication.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -95,7 +93,6 @@ DATABASES = {
         },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -114,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -139,11 +135,12 @@ LANGUAGES = [
     ('en', 'English'),
     ('de', 'Deutsch'),
     ('it', 'Italiano'),
-    ('es', 'Español'),
 ]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+AUTH_USER_MODEL = 'Users.User'
 
 STATIC_URL = '/static/'
 
@@ -155,6 +152,9 @@ LOGIN_REDIRECT_URL = 'JourneyMap_home'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = mail.EMAIL_HOST
 EMAIL_HOST_USER = mail.EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = mail.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = mail.EMAIL_HOST_PASSWORD
 EMAIL_PORT = mail.EMAIL_PORT
 EMAIL_USE_TLS = mail.EMAIL_USE_TLS
+
+PASSWORD_RESET_TIMEOUT_DAYS = 2
