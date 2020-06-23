@@ -1,8 +1,8 @@
+from PIL import Image as Img
+from django.contrib.auth import get_user_model
 from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import User
 from django.urls import reverse
-from PIL import Image as img
+from django.utils import timezone
 
 
 # Journey model each journey has a user, title and creation date
@@ -10,7 +10,7 @@ from PIL import Image as img
 
 
 class Journey(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     date_posted = models.DateTimeField(default=timezone.now)
 
@@ -44,7 +44,7 @@ class Image(models.Model):
 
     def save(self, *args, **kwargs):
         super(Image, self).save()
-        image = img.open(self.image.path)
+        image = Img.open(self.image.path)
 
         # Resize Profile Pic if too big
         if image.height > 1920 or image.width > 1080:
