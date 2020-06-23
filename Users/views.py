@@ -2,22 +2,19 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
-from django.shortcuts import redirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.translation import gettext as _
 from django.views import View
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
-from django.contrib.auth.forms import PasswordChangeForm
-from django.shortcuts import render, redirect
-from django.utils.translation import gettext as _
 
-from .forms import UserRegister, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegister, ProfileUpdateForm
 from .tokens import account_activation_token
 
 User = get_user_model()
@@ -86,12 +83,10 @@ class ActivateUser(View):
 @csrf_protect
 def profile(request):
     if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(request.POST, request.FILES,
                                          instance=request.user.profile)
         password_form = PasswordChangeForm(request.user, request.POST)
-        if user_form.is_valid() and profile_form.is_valid() and password_form.is_valid():
-            user_form.save()
+        if profile_form.is_valid() and password_form.is_valid():
             profile_form.save()
             user = password_form.save()
             update_session_auth_hash(request, user)
@@ -100,14 +95,11 @@ def profile(request):
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-
-        user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)
         password_form = PasswordChangeForm(request.user)
 
     context = {
         'title': _('Profile'),
-        'user_form': user_form,
         'profile_form': profile_form,
         'password_form': password_form,
     }

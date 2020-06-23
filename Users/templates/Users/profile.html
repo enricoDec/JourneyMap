@@ -30,8 +30,7 @@
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">{% trans 'Profile Info' %}</legend>
-                    {{ user_form|crispy }}
-                    {{ profile_form|crispy }}
+                    {{ profile_form.image }}
                     <h2>{% trans 'Change your password: ' %}</h2>
                     {{ password_form|crispy }}
                 </fieldset>
