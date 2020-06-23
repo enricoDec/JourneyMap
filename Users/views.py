@@ -15,10 +15,6 @@ from .tokens import account_activation_token
 
 User = get_user_model()
 
-
-# TODO: in branch User-managment
-# Check if user is active before login
-# Check if user is logged
 def sign_in(request):
     context = {
         'title': _('Sign In')
@@ -46,7 +42,7 @@ def sign_up(request):
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
             messages.success(request, _('Please confirm your email address to complete the registration'))
-            return render(request, 'Users/sign_up_confirm_email.html')
+            return redirect("JourneyMap_home")
     else:
         form = UserRegister()
 
