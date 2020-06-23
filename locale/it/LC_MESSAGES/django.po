@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-16 23:25+0200\n"
+"POT-Creation-Date: 2020-06-23 00:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,41 +18,128 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:37
-#: .\JourneyMap\templates\JourneyMap\home.html:4 .\JourneyMap\views.py:7
+#: .\JourneyMap\templates\JourneyMap\base.html:43 .\JourneyMap\views.py:7
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:41
-msgid "Contacts"
+#: .\JourneyMap\templates\JourneyMap\base.html:47
+#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:14
+msgid "Contact Us"
 msgstr "Contattaci"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:46
+#: .\JourneyMap\templates\JourneyMap\base.html:52
 msgid "My Journey"
 msgstr "Il mio viaggio"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:48
-msgid "Berlin-Rome"
+#: .\JourneyMap\templates\JourneyMap\base.html:54
+#, fuzzy
+#| msgid "Berlin-Rome"
+msgid "Berlin-Rom"
 msgstr "Berlino-Roma"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:49
-msgid "Rome-Paris"
+#: .\JourneyMap\templates\JourneyMap\base.html:55
+#, fuzzy
+#| msgid "Rome-Paris"
+msgid "Rom-Paris"
 msgstr "Roma-Parigi"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:50
+#: .\JourneyMap\templates\JourneyMap\base.html:56
 msgid "Berlin-Spain"
 msgstr "Berlino-Spagna"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:74
-#: .\JourneyMap\templates\JourneyMap\sign_in.html:2 .\JourneyMap\views.py:14
+#: .\JourneyMap\templates\JourneyMap\base.html:81
+#: .\Users\templates\Users\sign_up.html:21
+#: .\Users\templates\Users\sign_up_activation.html:20 .\Users\views.py:24
 msgid "Sign In"
 msgstr "Accedi"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:75
-#: .\JourneyMap\templates\JourneyMap\sign_up.html:2 .\JourneyMap\views.py:21
+#: .\JourneyMap\templates\JourneyMap\base.html:82
+#: .\Users\templates\Users\sign_up.html:15
+#: .\Users\templates\Users\sign_up_activation.html:14 .\Users\views.py:54
 msgid "Sign Up"
 msgstr "Iscriviti"
 
-#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:28
-msgid "Contact Us"
-msgstr "Contattaci"
+#: .\JourneyMap\templates\JourneyMap\base.html:120
+msgid "Privacy Policy"
+msgstr "Politica sulla riservatezza"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:121
+msgid "Legal Disclosures"
+msgstr "Divulgazione legale"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:122
+msgid "."
+msgstr "."
+
+#: .\JourneyMap\templates\JourneyMap\home.html:14
+msgid "Description"
+msgstr "Descrizione"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:15
+msgid "Start your journey"
+msgstr "Inizia il tuo viaggio"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:19
+msgid "FEATURES"
+msgstr "CARATTERISTICHE"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:23
+msgid "Create Journeys"
+msgstr "Crea Viaggi"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:23
+msgid "Create journeys and upload images."
+msgstr "Crea Viaggi e carica immagini."
+
+#: .\JourneyMap\templates\JourneyMap\home.html:27
+#, fuzzy
+#| msgid "Recall your Journeys"
+msgid "Relive your Journeys"
+msgstr "Rivivi i tuoi viaggi"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:27
+#, fuzzy
+#| msgid "View your journeys on an interactive world map."
+msgid "Relive your journeys on an interactive world map."
+msgstr "Rivivi i tuoi viaggi su una cartina interattiva."
+
+#: .\JourneyMap\templates\JourneyMap\home.html:31
+msgid "Share Journeys"
+msgstr "Condividi i tuoi viaggi"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:31
+msgid "Share your journeys with other people."
+msgstr "Condividi i tuoi viaggi con altre persone."
+
+#: .\Users\forms.py:8
+msgid "Email"
+msgstr "E-mail"
+
+#: .\Users\forms.py:8
+msgid "Please enter a valid Email"
+msgstr "Inserisci una E-mail valida"
+
+#: .\Users\forms.py:9
+msgid "Name"
+msgstr "Nome"
+
+#: .\Users\forms.py:10
+msgid "Surname"
+msgstr "Cognome"
+
+#: .\Users\templates\Users\sign_up.html:11
+#: .\Users\templates\Users\sign_up_activation.html:10
+msgid "Register"
+msgstr "Reggistrati"
+
+#: .\Users\templates\Users\sign_up.html:20
+#: .\Users\templates\Users\sign_up_activation.html:19
+msgid "Already have an Account ?"
+msgstr "Hai già un account ?"
+
+#: .\Users\views.py:48
+msgid "Please confirm your email address to complete the registration"
+msgstr "Conferma la tua E-mail prima di procedere"
+
+#~ msgid "Contacts"
+#~ msgstr "Contattaci"

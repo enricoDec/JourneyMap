@@ -1,12 +1,12 @@
-{% extends "JourneyMap/base.html"%}
-{% load static %}
-{% load i18n %}
-{% block content %}
-    <h1>{% trans "Journeys" %}</h1>
-    {% for journey in journeys %}
-        <h1>{{ journey.title }}</h1>
-        <h1>{{ journey.date_posted|date:"F d, Y"}}</h1>
-        <img src="{% static 'JourneyMap/IMG_6244.JPG' %}" height="720" width="">
-        <h1>{{ journey.user }}</h1>
-    {% endfor %}
-{% endblock content %}
+{#{% extends "JourneyMap/base.html"%}#}
+{#{% load static %}#}
+{#{% load i18n %}#}
+{#{% block content %}#}
+{#    <h1>{% trans "Journeys" %}</h1>#}
+{#    {% for journey in journeys %}#}
+{#        <h1>{{ journey.title }}</h1>#}
+{#        <h1>{{ journey.date_posted|date:"F d, Y"}}</h1>#}
+{#        <img src="{% static 'JourneyMap/IMG_6244.JPG' %}" height="720" width="">#}
+{#        <h1>{{ journey.user }}</h1>#}
+{#    {% endfor %}#}
+{#{% endblock content %}#}
