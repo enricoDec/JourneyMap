@@ -1,8 +1,8 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model, login
+from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
@@ -17,16 +17,6 @@ from .forms import UserRegister
 from .tokens import account_activation_token
 
 User = get_user_model()
-
-
-# TODO: in branch User-managment
-# Check if user is active before login
-# Check if user is logged
-def sign_in(request):
-    context = {
-        'title': _('Sign In')
-    }
-    return render(request, 'Users/sign_in.html', context)
 
 
 @never_cache
@@ -57,7 +47,7 @@ def sign_up(request):
 
     context = {
         'title': _('Sign Up'),
-        'form': form
+        'form': form,
     }
     return render(request, 'Users/sign_up.html', context)
 
