@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 21:04+0200\n"
+"POT-Creation-Date: 2020-06-23 00:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,18 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:43 .\JourneyMap\views.py:8
+#: .\JourneyMap\templates\JourneyMap\base.html:43 .\JourneyMap\views.py:7
 msgid "Home"
-msgstr "Home"
+msgstr "Start"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:47
-#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:15
+#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:14
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:52
 msgid "My Journey"
-msgstr "Meine Reise"
+msgstr "Meine Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:54
 #, fuzzy
@@ -47,34 +47,27 @@ msgstr "Rom-Paris"
 msgid "Berlin-Spain"
 msgstr "Berlin-Spanien"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:82 .\Users\views.py:35
-msgid "Profile"
-msgstr ""
-
-#: .\JourneyMap\templates\JourneyMap\base.html:83
-msgid "Logout"
-msgstr ""
-
-#: .\JourneyMap\templates\JourneyMap\base.html:85
+#: .\JourneyMap\templates\JourneyMap\base.html:81
 #: .\Users\templates\Users\sign_up.html:21
+#: .\Users\templates\Users\sign_up_activation.html:20 .\Users\views.py:24
 msgid "Sign In"
 msgstr "Anmelden"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:86
-#: .\Users\templates\Users\sign_in.html:22
-#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:24
+#: .\JourneyMap\templates\JourneyMap\base.html:82
+#: .\Users\templates\Users\sign_up.html:15
+#: .\Users\templates\Users\sign_up_activation.html:14 .\Users\views.py:54
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:125
+#: .\JourneyMap\templates\JourneyMap\base.html:120
 msgid "Privacy Policy"
 msgstr "Datenschutzrichtlinie"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:126
+#: .\JourneyMap\templates\JourneyMap\base.html:121
 msgid "Legal Disclosures"
-msgstr "Rechtliche Angaben"
+msgstr "Impressum"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:127
+#: .\JourneyMap\templates\JourneyMap\base.html:122
 msgid "."
 msgstr "."
 
@@ -92,19 +85,23 @@ msgstr "EIGENSCHAFTEN"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:23
 msgid "Create Journeys"
-msgstr "Meine Reise"
+msgstr "Erstelle Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:23
 msgid "Create journeys and upload images."
 msgstr "Erstellen Sie Reisen und laden Sie Bilder hoch."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-msgid "Review your Journeys"
+#, fuzzy
+#| msgid "Recall your Journeys"
+msgid "Relive your Journeys"
 msgstr "Sehen Sie Ihre Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-msgid "Review your journeys on an interactive world map."
-msgstr "Sehen Sie Ihre Reisen in eine interaktive Karte."
+#, fuzzy
+#| msgid "View your journeys on an interactive world map."
+msgid "Relive your journeys on an interactive world map."
+msgstr "Schauen Sie sich Ihre Reisen auf einer interaktiven Karte an."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:31
 msgid "Share Journeys"
@@ -112,7 +109,7 @@ msgstr "Teilen Sie Ihre Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:31
 msgid "Share your journeys with other people."
-msgstr "Teilen Sie Ihre Reisen mit andere Leute."
+msgstr "Teilen Sie Ihre Reisen mit anderen Leuten."
 
 #: .\Users\forms.py:8
 msgid "Email"
@@ -130,37 +127,19 @@ msgstr "Name"
 msgid "Surname"
 msgstr "Nachname"
 
-#: .\Users\templates\Users\sign_in.html:12
-msgid "Log In"
-msgstr ""
-
-#: .\Users\templates\Users\sign_in.html:16
-msgid "Login"
-msgstr ""
-
-#: .\Users\templates\Users\sign_in.html:21
-msgid "Do you need to Register ?"
-msgstr ""
-
-#: .\Users\templates\Users\sign_out.html:5
-msgid "You have been succefully logged out!"
-msgstr ""
-
-#: .\Users\templates\Users\sign_out.html:8
-msgid "Log In Again"
-msgstr ""
-
 #: .\Users\templates\Users\sign_up.html:11
+#: .\Users\templates\Users\sign_up_activation.html:10
 msgid "Register"
 msgstr "Registrieren"
 
 #: .\Users\templates\Users\sign_up.html:20
+#: .\Users\templates\Users\sign_up_activation.html:19
 msgid "Already have an Account ?"
-msgstr "Haben Sie bereits ein Konto?"
+msgstr "Haben sie bereits ein Konto?"
 
-#: .\Users\views.py:18
-msgid "Account created for"
-msgstr "Konto erstellt für"
+#: .\Users\views.py:48
+msgid "Please confirm your email address to complete the registration"
+msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
 
 #~ msgid "Contacts"
 #~ msgstr "Kontakte"

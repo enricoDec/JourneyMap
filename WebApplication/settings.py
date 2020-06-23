@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # third party
     'crispy_forms',
+    'six',
 
     # own
     'JourneyMap.apps.JourneymapConfig',
@@ -156,3 +157,5 @@ DEFAULT_FROM_EMAIL = mail.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = mail.EMAIL_HOST_PASSWORD
 EMAIL_PORT = mail.EMAIL_PORT
 EMAIL_USE_TLS = mail.EMAIL_USE_TLS
+
+PASSWORD_RESET_TIMEOUT_DAYS = 2
