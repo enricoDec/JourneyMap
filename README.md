@@ -10,10 +10,10 @@ A Web Application that creates a "Journey Map" from pictures.
 - User-managment (Login, Change Password)
 - Profile (Profile picture, Profile View (Merge Change Password View with Profile View))
 - Pwd Reset (Forgot your password with email)
-- Journey (MVT, Journey and Image Model(Single Journey View))
-- Journeys (View (List View with all User Journeys))
 - CDP (Content delivery provider ("hide" image location and file structure)
 - Image API (Read Exif Data from images)
+- Journey (MVT, Journey and Image Model(Single Journey View))
+- Journeys (View (List View with all User Journeys))
 - Journey Map 
 - Share Journey
 
