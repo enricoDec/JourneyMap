@@ -20,10 +20,11 @@
     height: auto !important;
 }
 
-.data-container h2 {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    width: 100%;
+.data-container legend {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    margin-bottom: 10px !important;
+    width: calc(100% - 30px);
     font-size: 24px;
     text-overflow: ellipsis;
 }
