@@ -1,9 +1,11 @@
 {% extends "Users/base.html" %}
+{% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% load static %}
 {% block content %}
-    <div class="content-section">
+    <link rel="stylesheet" type="text/css" href="{% static 'Users/signin.css' %}">
+    <div class="m-md-5">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -12,6 +14,12 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">{% trans 'Login' %}</button>
+            </div>
+            <div>
+                <small class="text-muted">
+                    {% trans 'Forgot your password ?' %}
+                    <a class="ml-2" href="{% url 'password_reset' %}">{% trans 'Reset Password' %}</a>
+                </small>
             </div>
         </form>
         <div class="border-top pt-3">

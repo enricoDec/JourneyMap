@@ -1,0 +1,68 @@
+:root {
+    --data-container-width: 350px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.data-container {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    width: var(--data-container-width);
+    min-width: var(--data-container-width);
+    max-width: var(--data-container-width);
+    height: auto !important;
+}
+
+.data-container legend {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    margin-bottom: 10px !important;
+    width: calc(100% - 30px);
+    font-size: 24px;
+    text-overflow: ellipsis;
+}
+
+.data-container img {
+    margin-bottom: 8px !important;
+    width: 100%;
+}
+
+.data-container .data {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-container .data .row {
+    margin: 0 15px 0 15px;
+    padding: 0;
+    width: calc(100% - 30px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.data-container .data .row p {
+    margin: 5px 0 5px 0;
+    padding: 0;
+}
+
+.data-container .data .row .column-1 {
+    width: calc(40% - 5px);
+}
+
+.data-container .data .row .column-2 {
+    width: calc(60% - 5px);
+}
+
+.form-container {
+    margin-left: 20px !important;
+    margin-right: 0px !important;
+    width: calc(100% - var(--data-container-width));
+}
