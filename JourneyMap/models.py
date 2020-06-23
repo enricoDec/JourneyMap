@@ -1,3 +1,5 @@
+import uuid
+
 from PIL import Image as Img
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -21,17 +23,20 @@ class Journey(models.Model):
         return reverse('JourneyMap_journeys')
 
 
-# TODO: ID not auto increment
-# Each image corresponds to a Journey
-# Image has all the metadata and file path to the image
 class Image(models.Model):
+    def upload_image(self, filename):
+        return 'journeys/' + self.journey.user_id.__str__() + '/' + filename
+
+    def createMaskedUrl(self, filename):
+        return
+
     journey = models.ForeignKey(Journey, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, null=True, blank=True)
     upload_date = models.DateTimeField(default=timezone.now)
     longitude = models.DecimalField(max_digits=18, decimal_places=15, default=None, null=True, blank=True)
     latitude = models.DecimalField(max_digits=18, decimal_places=15, default=None, null=True, blank=True)
     date_taken = models.DateTimeField(null=True, blank=True)
-    image = models.ImageField(upload_to='journey_images/', null=False, blank=False)
+    image = models.ImageField(upload_to=upload_image, null=False, blank=False, unique=True)
 
     def __str__(self):
         if self.title is not None:
@@ -52,3 +57,12 @@ class Image(models.Model):
             image.thumbnail(output_size)
             image.save(self.image.path)
 
+    def delete(self, using=None, keep_parents=False):
+        # os.remove(self.image.path)
+        super(Image, self).delete()
+
+
+class CDP(models.Model):
+    imageUrl = models.OneToOneField(Image(), on_delete=models.CASCADE)
+    # imageUrl = models.FilePathField(Image.get_absolute_url(), unique=True)
+    imageMaskUrl = models.UUIDField(unique=True, default=uuid.uuid4)

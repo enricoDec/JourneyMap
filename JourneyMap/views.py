@@ -125,7 +125,8 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
         kwargs['user'] = self.request.user.id
         return kwargs
 
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['form'].fields['journey'].queryset = Journey.objects.filter(user_id=self.request.user.id)
-    #     return context
+
+class ImageDeleteView(LoginRequiredMixin, DeleteView):
+    model = Image
+    template_name = 'JourneyMap/image_delete.html'
+    success_url = ''
