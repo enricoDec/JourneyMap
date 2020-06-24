@@ -1,5 +1,9 @@
 main {
-    display: block;
+    margin: 0 !important;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: inline-block;
 }
 
 .content-section {
