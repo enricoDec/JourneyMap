@@ -92,13 +92,11 @@ msgid "Create journeys and upload images."
 msgstr "Erstellen Sie Reisen und laden Sie Bilder hoch."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#, fuzzy
 #| msgid "Recall your Journeys"
 msgid "Relive your Journeys"
 msgstr "Sehen Sie Ihre Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#, fuzzy
 #| msgid "View your journeys on an interactive world map."
 msgid "Relive your journeys on an interactive world map."
 msgstr "Schauen Sie sich Ihre Reisen auf einer interaktiven Karte an."

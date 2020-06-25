@@ -41,13 +41,13 @@ def sign_up(request):
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.send()
             messages.success(request, _('Please confirm your email address to complete the registration'))
-            return render(request, 'Users/sign_up_confirm_email.html')
+            return redirect("JourneyMap_home")
     else:
         form = UserRegister()
 
     context = {
         'title': _('Sign Up'),
-        'form': form,
+        'form': form
     }
     return render(request, 'Users/sign_up.html', context)
 
