@@ -3,7 +3,7 @@
 A Web Application that creates a "Journey Map" from pictures.
 
 # Branches/Features List:
-- Header-Footer (Home, Impressum, Navbar, Footer)
+- Header-Footer (Home, Impressum, Navbar, Footer) :heavy_check_mark:
 - Translation (Language Picker in Navbar, change language feature)
 - Registration (Sign Up, Custom User Model, email authentication)
 - Contact Form (sends contact form per email)
