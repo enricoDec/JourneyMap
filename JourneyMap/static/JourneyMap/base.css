@@ -1,0 +1,138 @@
+:root {
+    --header-height: 56px;
+    --footer-height: 81px;
+    --footer-wrap-height: 107px;
+
+    //overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: #343a40 !important;
+}
+
+header nav {
+    margin: 0 auto;
+    padding: 8px 0px 8px 0px !important;
+    width: 80%;
+}
+
+header nav .navbar-toggler:active span {
+    -webkit-animation: rotation-back 0.2s  linear;
+}
+
+header nav .navbar-toggler.collapsed:active span {
+    -webkit-animation: rotation 0.2s  linear;
+}
+
+header nav button:focus {
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+header .nav-item.dropdown:hover > .dropdown-menu {
+    margin: 0;
+    display: block;
+}
+
+header .nav-item.dropdown:hover a::after {
+    transform: rotate(180deg);
+}
+
+main {
+    margin: 0 !important;
+    padding: 0;
+    width: 100%;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+footer {
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    display: block;
+}
+
+footer:after {
+    clear: both;
+}
+
+footer p {
+    float: left;
+}
+
+footer div {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: right;
+}
+
+footer div a {
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    color: #212529;
+}
+
+footer div a:first-child {
+    padding-left: 0;
+}
+
+footer div a:hover {
+    color: #212529;
+}
+
+@media (max-width: 992px) {
+    header nav, footer {
+        width: 90%;
+    }
+
+    header .nav-item.dropdown > .dropdown-menu {
+        margin: 0;
+        display: none !important;
+    }
+
+    header .nav-item.dropdown a::after {
+        display: none;
+    }
+
+    main {
+        min-height: calc(100vh - var(--header-height) - var(--footer-wrap-height));
+    }
+
+    footer {
+        padding-bottom: 10px;
+    }
+
+    footer p, footer div {
+        float: none;
+    }
+}
+
+@-webkit-keyframes rotation {
+        from {
+                -webkit-transform: rotate(0deg);
+        }
+        to {
+                -webkit-transform: rotate(180deg);
+        }
+}
+
+@-webkit-keyframes rotation-back {
+        from {
+                -webkit-transform: rotate(180deg);
+        }
+        to {
+                -webkit-transform: rotate(0deg);
+        }
+}
