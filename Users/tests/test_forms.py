@@ -64,7 +64,7 @@ class TestForms(TestCase):
 
     def test_register_form_email_invalid(self):
         form = UserRegister(data={
-             'first_name': 'Test',
+            'first_name': 'Test',
             'last_name': 'Test',
             'email': 'testjourney-map.eu',
             'username': 'testUser',
