@@ -83,7 +83,7 @@ class ActivateUser(View):
             login(request, user)
 
             messages.success(request, _('Activation successful!'))
-            return redirect('login')
+            return redirect('JourneyMap_home')
         else:
             messages.warning(request, _('Activation link is invalid!'))
             return redirect('JourneyMap_home')
