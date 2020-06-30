@@ -42,6 +42,8 @@ A Web Application that creates a "Journey Map" from pictures.
 
 - Pwd Reset (Forgot your password with email) (**Enrico**)
 
+- Image API (Read Exif Data from images) (**Enrico**)
+
 - Journey (MVT, Journey and Image Model(Single Journey View)) (**Enrico**)
 
 - Journeys (View (List View with all User Journeys)) (**Enrico**)
@@ -50,8 +52,6 @@ A Web Application that creates a "Journey Map" from pictures.
   
 
 ### Schwere Features:
-
-- Image API (Read Exif Data from images) (**Enrico**)
 
 - Journey Map (**Marcel**)
 
