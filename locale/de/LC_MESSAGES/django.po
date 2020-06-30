@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 12:11+0200\n"
+"POT-Creation-Date: 2020-06-30 19:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,13 +32,11 @@ msgid "My Journey"
 msgstr "Meine Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:55
-#, fuzzy
 #| msgid "Berlin-Rome"
 msgid "Berlin-Rom"
 msgstr "Berlin-Rom"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:56
-#, fuzzy
 #| msgid "Rome-Paris"
 msgid "Rom-Paris"
 msgstr "Rom-Paris"
@@ -48,14 +46,12 @@ msgid "Berlin-Spain"
 msgstr "Berlin-Spanien"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:82
-#: .\Users\templates\Users\sign_up.html:21
-#: .\Users\templates\Users\sign_up_activation.html:20 .\Users\views.py:20
+#: .\Users\templates\Users\sign_up.html:21 .\Users\views.py:23
 msgid "Sign In"
 msgstr "Anmelden"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:83
-#: .\Users\templates\Users\sign_up.html:15
-#: .\Users\templates\Users\sign_up_activation.html:14 .\Users\views.py:50
+#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:66
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
@@ -107,36 +103,67 @@ msgstr "Teilen Sie Ihre Reisen"
 msgid "Share your journeys with other people."
 msgstr "Teilen Sie Ihre Reisen mit anderen Leuten."
 
-#: .\Users\forms.py:8
+#: .\Users\forms.py:9
 msgid "Email"
 msgstr "Email"
 
-#: .\Users\forms.py:8
+#: .\Users\forms.py:9
 msgid "Please enter a valid Email"
 msgstr "Bitte geben Sie eine gültige Email-Adresse ein"
 
-#: .\Users\forms.py:9
+#: .\Users\forms.py:10
 msgid "Name"
 msgstr "Name"
 
-#: .\Users\forms.py:10
+#: .\Users\forms.py:11
 msgid "Surname"
 msgstr "Nachname"
 
+#: .\Users\managers.py:10
+msgid "The Email must be set"
+msgstr "Die E-Mail muss eingestellt sein"
+
+#: .\Users\managers.py:12
+msgid "The Username must be set"
+msgstr "Der Benutzername muss festgelegt sein"
+
 #: .\Users\templates\Users\sign_up.html:11
-#: .\Users\templates\Users\sign_up_activation.html:10
 msgid "Register"
 msgstr "Registrieren"
 
 #: .\Users\templates\Users\sign_up.html:20
-#: .\Users\templates\Users\sign_up_activation.html:19
 msgid "Already have an Account ?"
 msgstr "Haben sie bereits ein Konto?"
 
-#: .\Users\views.py:44
+#: .\Users\templates\Users\sign_up_email.html:9
+msgid "Hi "
+msgstr "Hallo "
+
+#: .\Users\templates\Users\sign_up_email.html:10
+msgid "Thanks for signing up with JourneyMap!"
+msgstr "Vielen Dank, dass Sie sich bei JourneyMap angemeldet haben!"
+
+#: .\Users\templates\Users\sign_up_email.html:11
+msgid "You must follow this link to activate your account:"
+msgstr "Sie müssen diesem Link folgen, um Ihr Konto zu aktivieren:"
+
+#: .\Users\views.py:56
+#| msgid "Start your journey"
+msgid "Activate your account"
+msgstr "Beginnen Sie Ihre Reise"
+
+#: .\Users\views.py:60
 msgid "Please confirm your email address to complete the registration"
-msgstr ""
+msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
 "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
+
+#: .\Users\views.py:85
+msgid "Activation successful!"
+msgstr "Aktivierung erfolgreich!"
+
+#: .\Users\views.py:88
+msgid "Activation link is invalid!"
+msgstr "Aktivierungslink ist ungültig!"
 
 #~ msgid "Contacts"
 #~ msgstr "Kontakte"
