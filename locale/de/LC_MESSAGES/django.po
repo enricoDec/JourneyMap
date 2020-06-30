@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 00:46+0200\n"
+"POT-Creation-Date: 2020-06-30 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,56 +18,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:43 .\JourneyMap\views.py:7
+#: .\JourneyMap\templates\JourneyMap\base.html:44 .\JourneyMap\views.py:7
 msgid "Home"
 msgstr "Start"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:47
+#: .\JourneyMap\templates\JourneyMap\base.html:48
 #: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:14
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:52
+#: .\JourneyMap\templates\JourneyMap\base.html:53
 msgid "My Journey"
 msgstr "Meine Reisen"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:54
+#: .\JourneyMap\templates\JourneyMap\base.html:55
 #, fuzzy
 #| msgid "Berlin-Rome"
 msgid "Berlin-Rom"
 msgstr "Berlin-Rom"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:55
+#: .\JourneyMap\templates\JourneyMap\base.html:56
 #, fuzzy
 #| msgid "Rome-Paris"
 msgid "Rom-Paris"
 msgstr "Rom-Paris"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:56
+#: .\JourneyMap\templates\JourneyMap\base.html:57
 msgid "Berlin-Spain"
 msgstr "Berlin-Spanien"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:81
+#: .\JourneyMap\templates\JourneyMap\base.html:82
 #: .\Users\templates\Users\sign_up.html:21
-#: .\Users\templates\Users\sign_up_activation.html:20 .\Users\views.py:24
+#: .\Users\templates\Users\sign_up_activation.html:20 .\Users\views.py:20
 msgid "Sign In"
 msgstr "Anmelden"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:82
+#: .\JourneyMap\templates\JourneyMap\base.html:83
 #: .\Users\templates\Users\sign_up.html:15
-#: .\Users\templates\Users\sign_up_activation.html:14 .\Users\views.py:54
+#: .\Users\templates\Users\sign_up_activation.html:14 .\Users\views.py:50
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:120
+#: .\JourneyMap\templates\JourneyMap\base.html:121
 msgid "Privacy Policy"
 msgstr "Datenschutzrichtlinie"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:121
+#: .\JourneyMap\templates\JourneyMap\base.html:122
 msgid "Legal Disclosures"
 msgstr "Impressum"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:122
+#: .\JourneyMap\templates\JourneyMap\base.html:123
 msgid "."
 msgstr "."
 
@@ -92,12 +92,10 @@ msgid "Create journeys and upload images."
 msgstr "Erstellen Sie Reisen und laden Sie Bilder hoch."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#| msgid "Recall your Journeys"
 msgid "Relive your Journeys"
 msgstr "Sehen Sie Ihre Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#| msgid "View your journeys on an interactive world map."
 msgid "Relive your journeys on an interactive world map."
 msgstr "Schauen Sie sich Ihre Reisen auf einer interaktiven Karte an."
 
@@ -135,9 +133,10 @@ msgstr "Registrieren"
 msgid "Already have an Account ?"
 msgstr "Haben sie bereits ein Konto?"
 
-#: .\Users\views.py:48
+#: .\Users\views.py:44
 msgid "Please confirm your email address to complete the registration"
-msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
+msgstr ""
+"Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
 
 #~ msgid "Contacts"
 #~ msgstr "Kontakte"
