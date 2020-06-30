@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 00:44+0200\n"
+"POT-Creation-Date: 2020-06-30 12:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,52 +18,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:41 .\JourneyMap\views.py:7
+#: .\JourneyMap\templates\JourneyMap\base.html:42 .\JourneyMap\views.py:7
 msgid "Home"
 msgstr "Home"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:45
+#: .\JourneyMap\templates\JourneyMap\base.html:46
 #: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:28
 msgid "Contact Us"
 msgstr "Contattaci"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:50
+#: .\JourneyMap\templates\JourneyMap\base.html:51
 msgid "My Journey"
 msgstr "Il mio viaggio"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:52
-#, fuzzy
-#| msgid "Berlin-Rome"
+#: .\JourneyMap\templates\JourneyMap\base.html:53
 msgid "Berlin-Rom"
 msgstr "Berlino-Roma"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:53
-#, fuzzy
-#| msgid "Rome-Paris"
+#: .\JourneyMap\templates\JourneyMap\base.html:54
 msgid "Rom-Paris"
 msgstr "Roma-Parigi"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:54
+#: .\JourneyMap\templates\JourneyMap\base.html:55
 msgid "Berlin-Spain"
 msgstr "Berlino-Spagna"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:79 .\JourneyMap\views.py:14
+#: .\JourneyMap\templates\JourneyMap\base.html:80 .\JourneyMap\views.py:14
 msgid "Sign In"
 msgstr "Accedi"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:80 .\JourneyMap\views.py:21
+#: .\JourneyMap\templates\JourneyMap\base.html:81 .\JourneyMap\views.py:21
 msgid "Sign Up"
 msgstr "Iscriviti"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:109
+#: .\JourneyMap\templates\JourneyMap\base.html:110
 msgid "Privacy Policy"
 msgstr "Politica sulla riservatezza"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:110
+#: .\JourneyMap\templates\JourneyMap\base.html:111
 msgid "Legal Disclosures"
 msgstr "Divulgazione legale"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:111
+#: .\JourneyMap\templates\JourneyMap\base.html:112
 msgid "."
 msgstr ""
 
@@ -88,14 +84,10 @@ msgid "Create journeys and upload images."
 msgstr "Crea Viaggi e carica immagini."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#, fuzzy
-#| msgid "Recall your Journeys"
 msgid "Relive your Journeys"
 msgstr "Rivivi i tuoi viaggi"
 
 #: .\JourneyMap\templates\JourneyMap\home.html:27
-#, fuzzy
-#| msgid "View your journeys on an interactive world map."
 msgid "Relive your journeys on an interactive world map."
 msgstr "Rivivi i tuoi viaggi su una cartina interattiva."
 
