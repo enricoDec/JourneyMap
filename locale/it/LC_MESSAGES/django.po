@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-30 12:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:42 .\JourneyMap\views.py:7
+msgid "Home"
+msgstr "Home"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:46
+#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:28
+msgid "Contact Us"
+msgstr "Contattaci"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:51
+msgid "My Journey"
+msgstr "Il mio viaggio"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:53
+msgid "Berlin-Rom"
+msgstr "Berlino-Roma"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:54
+msgid "Rom-Paris"
+msgstr "Roma-Parigi"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:55
+msgid "Berlin-Spain"
+msgstr "Berlino-Spagna"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:80 .\JourneyMap\views.py:14
+msgid "Sign In"
+msgstr "Accedi"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:81 .\JourneyMap\views.py:21
+msgid "Sign Up"
+msgstr "Iscriviti"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:110
+msgid "Privacy Policy"
+msgstr "Politica sulla riservatezza"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:111
+msgid "Legal Disclosures"
+msgstr "Divulgazione legale"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:112
+msgid "."
+msgstr ""
+
+#: .\JourneyMap\templates\JourneyMap\home.html:14
+msgid "Description"
+msgstr "Descrizione"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:15
+msgid "Start your journey"
+msgstr "Inizia il tuo viaggio"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:19
+msgid "FEATURES"
+msgstr "CARATTERISTICHE"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:23
+msgid "Create Journeys"
+msgstr "Crea Viaggi"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:23
+msgid "Create journeys and upload images."
+msgstr "Crea Viaggi e carica immagini."
+
+#: .\JourneyMap\templates\JourneyMap\home.html:27
+msgid "Relive your Journeys"
+msgstr "Rivivi i tuoi viaggi"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:27
+msgid "Relive your journeys on an interactive world map."
+msgstr "Rivivi i tuoi viaggi su una cartina interattiva."
+
+#: .\JourneyMap\templates\JourneyMap\home.html:31
+msgid "Share Journeys"
+msgstr "Condividi i tuoi viaggi"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:31
+msgid "Share your journeys with other people."
+msgstr "Condividi i tuoi viaggi con altre persone."
+
+#~ msgid "Contacts"
+#~ msgstr "Contattaci"

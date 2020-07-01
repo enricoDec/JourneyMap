@@ -20,6 +20,55 @@ header {
     background-color: #343a40 !important;
 }
 
+header form {
+    margin: 0 15px 0 0;
+    padding: 0;
+}
+
+header form .bootstrap-select {
+    width: 100px !important;
+}
+
+header form .bootstrap-select .dropdown-toggle:focus {
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+header form .bootstrap-select .filter-option .text-muted {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+header form .dropdown-menu.inner {
+    display: block;
+}
+
+header form .dropdown-menu li a {
+    display: block;
+}
+
+header form .dropdown-menu li a:hover {
+    background-color: rgba(221, 221, 221, 1);
+}
+
+header form .dropdown-menu li.selected a {
+    border: none;
+    outline: none;
+    background-color: rgba(221, 221, 221, 1);
+}
+
+header form .dropdown-menu i {
+    margin: 0 0 0 10px !important;
+}
+
+header form .dropdown-menu small {
+    padding: 0;
+    color: #212529;
+    text-transform: uppercase;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
 header nav {
     margin: 0 auto;
     padding: 8px 0px 8px 0px !important;
@@ -92,6 +141,57 @@ footer div a:hover {
     color: #212529;
 }
 
+footer form {
+    float: right;
+    border: 1px rgba(0, 0, 0, 0.1) solid;
+    border-radius: 5px;
+    display: none;
+}
+
+footer form .bootstrap-select {
+    width: 100px !important;
+}
+
+footer form .bootstrap-select .dropdown-toggle:focus {
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+footer form .bootstrap-select .filter-option .text-muted {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+footer form .dropdown-menu.inner {
+    display: block;
+}
+
+footer form .dropdown-menu li a {
+    display: block;
+}
+
+footer form .dropdown-menu li a:hover {
+    background-color: rgba(221, 221, 221, 1);
+}
+
+footer form .dropdown-menu li.selected a {
+    border: none;
+    outline: none;
+    background-color: rgba(221, 221, 221, 1);
+}
+
+footer form .dropdown-menu i {
+    margin: 0 0 0 10px !important;
+}
+
+footer form .dropdown-menu small {
+    padding: 0;
+    color: #212529;
+    text-transform: uppercase;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
 @media (max-width: 992px) {
     header nav, footer {
         width: 90%;
@@ -116,6 +216,14 @@ footer div a:hover {
 
     footer p, footer div {
         float: none;
+    }
+
+    header form {
+        display: none;
+    }
+
+    footer form {
+        display: block;
     }
 }
 
