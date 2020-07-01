@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-01 13:11+0200\n"
+"POT-Creation-Date: 2020-07-01 17:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,13 +31,13 @@ msgid "Message"
 msgstr "Nachricht"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:44 .\JourneyMap\tests.py:34
-#: .\JourneyMap\views.py:13
+#: .\JourneyMap\views.py:15
 msgid "Home"
 msgstr "Start"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:48
 #: .\JourneyMap\templates\JourneyMap\contact_us.html:11
-#: .\JourneyMap\tests.py:36 .\JourneyMap\tests.py:39 .\JourneyMap\views.py:58
+#: .\JourneyMap\tests.py:36 .\JourneyMap\tests.py:39 .\JourneyMap\views.py:91
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
@@ -83,9 +83,43 @@ msgstr "."
 msgid "Send"
 msgstr "Senden"
 
-#: .\JourneyMap\templates\JourneyMap\contact_us_thanks.html:4
-msgid "Thanks !"
-msgstr "Danke !"
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:9
+msgid "Message Received from User"
+msgstr "Vom Benutzer empfangene Nachricht"
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:10
+msgid "User: "
+msgstr "Benutzer: "
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:11
+#| msgid "Email"
+msgid "Email: "
+msgstr "Email"
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:12
+msgid "Send a message: "
+msgstr "Hat eine Nachricht geschickt: "
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:9
+msgid "Hello "
+msgstr "Hallo "
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:10
+msgid "Thank you for contacting us."
+msgstr "Danke, dass Sie uns kontaktiert haben."
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:11
+msgid "We will reply to your message soon."
+msgstr "Wir werden Ihre Nachricht bald beantworten."
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:12
+#| msgid "Message"
+msgid "Your message:"
+msgstr "Nachricht"
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:14
+msgid "This is an automated response."
+msgstr "Dies ist eine automatisierte Antwort."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:15
 msgid "Description"
@@ -123,15 +157,23 @@ msgstr "Teilen Sie Ihre Reisen"
 msgid "Share your journeys with other people."
 msgstr "Teilen Sie Ihre Reisen mit anderen Leuten."
 
-#: .\JourneyMap\views.py:48
-msgid "Contact Form Send!"
-msgstr "Kontakt Formular gesendet!"
+#: .\JourneyMap\views.py:38
+msgid "User send a Contact Form"
+msgstr "Benutzer hat ein Kontaktformular gesendet"
 
-#: .\JourneyMap\views.py:53
-msgid "Error !"
-msgstr "Fehler !"
+#: .\JourneyMap\views.py:47
+msgid "We received your message"
+msgstr "Wir haben Ihre Nachricht erhalten"
 
-#: .\JourneyMap\views.py:66
+#: .\JourneyMap\views.py:52
+msgid "Thank you, the message was send."
+msgstr "Vielen Dank, die Nachricht wurde gesendet."
+
+#: .\JourneyMap\views.py:55
+msgid "An error occurred, please try again"
+msgstr "Es ist ein Fehler aufgetreten. Versuchen Sie es erneut"
+
+#: .\JourneyMap\views.py:99
 msgid "Thanks"
 msgstr "Danke"
 
@@ -186,6 +228,15 @@ msgstr "Aktivierung erfolgreich!"
 #: .\Users\views.py:88
 msgid "Activation link is invalid!"
 msgstr "Aktivierungslink ist ungültig!"
+
+#~ msgid "Thanks !"
+#~ msgstr "Danke !"
+
+#~ msgid "Contact Form Send!"
+#~ msgstr "Vielen Dank für Ihre Nachricht."
+
+#~ msgid "Error !"
+#~ msgstr "Fehler !"
 
 #~ msgid "Contacts"
 #~ msgstr "Kontakte"

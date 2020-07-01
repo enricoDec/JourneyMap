@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-01 13:11+0200\n"
+"POT-Creation-Date: 2020-07-01 17:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,13 +31,13 @@ msgid "Message"
 msgstr "Messaggio"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:44 .\JourneyMap\tests.py:34
-#: .\JourneyMap\views.py:13
+#: .\JourneyMap\views.py:15
 msgid "Home"
 msgstr "Home"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:48
 #: .\JourneyMap\templates\JourneyMap\contact_us.html:11
-#: .\JourneyMap\tests.py:36 .\JourneyMap\tests.py:39 .\JourneyMap\views.py:58
+#: .\JourneyMap\tests.py:36 .\JourneyMap\tests.py:39 .\JourneyMap\views.py:91
 msgid "Contact Us"
 msgstr "Contattaci"
 
@@ -83,9 +83,43 @@ msgstr "."
 msgid "Send"
 msgstr "Invia"
 
-#: .\JourneyMap\templates\JourneyMap\contact_us_thanks.html:4
-msgid "Thanks !"
-msgstr "Grazie !"
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:9
+msgid "Message Received from User"
+msgstr "Messaggio ricevuto dall'utente"
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:10
+msgid "User: "
+msgstr "Utente: "
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:11
+#| msgid "Email"
+msgid "Email: "
+msgstr "E-mail: "
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_email.html:12
+msgid "Send a message: "
+msgstr "Ha mandato il seguente messaggio: "
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:9
+msgid "Hello "
+msgstr "Ciao "
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:10
+msgid "Thank you for contacting us."
+msgstr "Grazie per averci contattato."
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:11
+msgid "We will reply to your message soon."
+msgstr "Risponderemo al tuo messaggio al più presto."
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:12
+#| msgid "Message"
+msgid "Your message:"
+msgstr "Il tuo Messaggio:"
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:14
+msgid "This is an automated response."
+msgstr "Questa è una risposta automatica."
 
 #: .\JourneyMap\templates\JourneyMap\home.html:15
 msgid "Description"
@@ -123,15 +157,23 @@ msgstr "Condividi i tuoi viaggi"
 msgid "Share your journeys with other people."
 msgstr "Condividi i tuoi viaggi con altre persone."
 
-#: .\JourneyMap\views.py:48
-msgid "Contact Form Send!"
-msgstr "Modulo inviato!"
+#: .\JourneyMap\views.py:38
+msgid "User send a Contact Form"
+msgstr "L'utente ha inviato una domanda"
 
-#: .\JourneyMap\views.py:53
-msgid "Error !"
-msgstr "Errore !"
+#: .\JourneyMap\views.py:47
+msgid "We received your message"
+msgstr "Abbiamo ricevuto il tuo messaggio"
 
-#: .\JourneyMap\views.py:66
+#: .\JourneyMap\views.py:52
+msgid "Thank you, the message was send."
+msgstr "Grazie, il messaggio è stato inviato."
+
+#: .\JourneyMap\views.py:55
+msgid "An error occurred, please try again"
+msgstr "Si è verificato un errore. Si prega di riprovare"
+
+#: .\JourneyMap\views.py:99
 msgid "Thanks"
 msgstr "Grazie"
 
@@ -172,7 +214,6 @@ msgid "You must follow this link to activate your account:"
 msgstr "Segui questo link per attivare il tuo account:"
 
 #: .\Users\views.py:56
-#| msgid "Start your journey"
 msgid "Activate your account"
 msgstr "Inizia il tuo viaggio"
 
@@ -187,6 +228,15 @@ msgstr "Attivazione riuscita"
 #: .\Users\views.py:88
 msgid "Activation link is invalid!"
 msgstr "Link per la attivazione è invalido!"
+
+#~ msgid "Thanks !"
+#~ msgstr "Grazie !"
+
+#~ msgid "Contact Form Send!"
+#~ msgstr "Modulo inviato!"
+
+#~ msgid "Error !"
+#~ msgstr "Errore !"
 
 #~ msgid "Contacts"
 #~ msgstr "Contattaci"
