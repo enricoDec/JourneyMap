@@ -155,7 +155,6 @@ msgstr "Beginnen Sie Ihre Reise"
 #: .\Users\views.py:60
 msgid "Please confirm your email address to complete the registration"
 msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
-"Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
 
 #: .\Users\views.py:85
 msgid "Activation successful!"
