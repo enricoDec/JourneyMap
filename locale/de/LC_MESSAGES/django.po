@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 19:39+0200\n"
+"POT-Creation-Date: 2020-07-01 13:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:44 .\JourneyMap\views.py:7
+#: .\JourneyMap\forms.py:6 .\Users\forms.py:10
+msgid "Name"
+msgstr "Name"
+
+#: .\JourneyMap\forms.py:7 .\Users\forms.py:9
+msgid "Email"
+msgstr "Email"
+
+#: .\JourneyMap\forms.py:8
+msgid "Message"
+msgstr "Nachricht"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:44 .\JourneyMap\tests.py:34
+#: .\JourneyMap\views.py:13
 msgid "Home"
 msgstr "Start"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:48
-#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:14
+#: .\JourneyMap\templates\JourneyMap\contact_us.html:11
+#: .\JourneyMap\tests.py:36 .\JourneyMap\tests.py:39 .\JourneyMap\views.py:58
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
@@ -32,12 +46,10 @@ msgid "My Journey"
 msgstr "Meine Reisen"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:55
-#| msgid "Berlin-Rome"
 msgid "Berlin-Rom"
 msgstr "Berlin-Rom"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:56
-#| msgid "Rome-Paris"
 msgid "Rom-Paris"
 msgstr "Rom-Paris"
 
@@ -67,53 +79,65 @@ msgstr "Impressum"
 msgid "."
 msgstr "."
 
-#: .\JourneyMap\templates\JourneyMap\home.html:14
+#: .\JourneyMap\templates\JourneyMap\contact_us.html:15
+msgid "Send"
+msgstr "Senden"
+
+#: .\JourneyMap\templates\JourneyMap\contact_us_thanks.html:4
+msgid "Thanks !"
+msgstr "Danke !"
+
+#: .\JourneyMap\templates\JourneyMap\home.html:15
 msgid "Description"
 msgstr "Beschreibung"
 
-#: .\JourneyMap\templates\JourneyMap\home.html:15
+#: .\JourneyMap\templates\JourneyMap\home.html:16
 msgid "Start your journey"
 msgstr "Beginnen Sie Ihre Reise"
 
-#: .\JourneyMap\templates\JourneyMap\home.html:19
+#: .\JourneyMap\templates\JourneyMap\home.html:20
 msgid "FEATURES"
 msgstr "EIGENSCHAFTEN"
 
-#: .\JourneyMap\templates\JourneyMap\home.html:23
+#: .\JourneyMap\templates\JourneyMap\home.html:24
 msgid "Create Journeys"
 msgstr "Erstelle Reisen"
 
-#: .\JourneyMap\templates\JourneyMap\home.html:23
+#: .\JourneyMap\templates\JourneyMap\home.html:24
 msgid "Create journeys and upload images."
 msgstr "Erstellen Sie Reisen und laden Sie Bilder hoch."
 
-#: .\JourneyMap\templates\JourneyMap\home.html:27
+#: .\JourneyMap\templates\JourneyMap\home.html:28
 msgid "Relive your Journeys"
 msgstr "Sehen Sie Ihre Reisen"
 
-#: .\JourneyMap\templates\JourneyMap\home.html:27
+#: .\JourneyMap\templates\JourneyMap\home.html:28
 msgid "Relive your journeys on an interactive world map."
 msgstr "Schauen Sie sich Ihre Reisen auf einer interaktiven Karte an."
 
-#: .\JourneyMap\templates\JourneyMap\home.html:31
+#: .\JourneyMap\templates\JourneyMap\home.html:32
 msgid "Share Journeys"
 msgstr "Teilen Sie Ihre Reisen"
 
-#: .\JourneyMap\templates\JourneyMap\home.html:31
+#: .\JourneyMap\templates\JourneyMap\home.html:32
 msgid "Share your journeys with other people."
 msgstr "Teilen Sie Ihre Reisen mit anderen Leuten."
 
-#: .\Users\forms.py:9
-msgid "Email"
-msgstr "Email"
+#: .\JourneyMap\views.py:48
+msgid "Contact Form Send!"
+msgstr "Kontakt Formular gesendet!"
+
+#: .\JourneyMap\views.py:53
+msgid "Error !"
+msgstr "Fehler !"
+
+#: .\JourneyMap\views.py:66
+msgid "Thanks"
+msgstr "Danke"
 
 #: .\Users\forms.py:9
 msgid "Please enter a valid Email"
 msgstr "Bitte geben Sie eine gültige Email-Adresse ein"
-
-#: .\Users\forms.py:10
-msgid "Name"
-msgstr "Name"
 
 #: .\Users\forms.py:11
 msgid "Surname"
@@ -148,14 +172,12 @@ msgid "You must follow this link to activate your account:"
 msgstr "Sie müssen diesem Link folgen, um Ihr Konto zu aktivieren:"
 
 #: .\Users\views.py:56
-#| msgid "Start your journey"
 msgid "Activate your account"
 msgstr "Beginnen Sie Ihre Reise"
 
 #: .\Users\views.py:60
 msgid "Please confirm your email address to complete the registration"
-msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
-"Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
+msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung"
 
 #: .\Users\views.py:85
 msgid "Activation successful!"
