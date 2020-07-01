@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from config import mail
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,9 +40,12 @@ INSTALLED_APPS = [
 
     # third party
     'whitenoise.runserver_nostatic',
+    'crispy_forms',
+    'six',
 
     # own
     'JourneyMap.apps.JourneymapConfig',
+    'Users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -138,9 +143,26 @@ LANGUAGES = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+AUTH_USER_MODEL = 'Users.User'
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'JourneyMap_home'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = mail.EMAIL_HOST
+EMAIL_HOST_USER = mail.EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = mail.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = mail.EMAIL_HOST_PASSWORD
+EMAIL_PORT = mail.EMAIL_PORT
+EMAIL_USE_TLS = mail.EMAIL_USE_TLS
+
+PASSWORD_RESET_TIMEOUT_DAYS = 2

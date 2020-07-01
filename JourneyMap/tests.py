@@ -1,4 +1,3 @@
-from django.test import TestCase
 from django.utils.translation import gettext as _
 from django.utils import translation
 
@@ -9,7 +8,7 @@ from selenium.webdriver.common.by import By
 from WebApplication import settings
 
 import requests
-import time
+
 
 # Create your tests here.
 
@@ -46,7 +45,9 @@ class SeleniumTests(StaticLiveServerTestCase):
         for image in example_images:
             self.check_200_response(image.get_attribute("src"))
 
-        bg_div_style = self.selenium.find_element_by_xpath('//div[@class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"]').get_attribute('style')
+        bg_div_style = self.selenium.find_element_by_xpath(
+            '//div[@class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"]').get_attribute(
+            'style')
         self.check_200_response('http://localhost:8000' + bg_div_style.split('url("', 1)[1].split('"', 1)[0])
 
     def check_200_response(self, url):
@@ -65,11 +66,10 @@ class SeleniumTests(StaticLiveServerTestCase):
         for anchor in dropdown_anchors:
             self.check_translation(anchor)
 
-
     def check_translation(self, anchor):
         anchor.click()
-        self.assertEquals(self.get_cookie('http://localhost:8000/', 'django_language'), settings.LANGUAGES[int(anchor.get_attribute('tabindex'))][0])
-
+        self.assertEquals(self.get_cookie('http://localhost:8000/', 'django_language'),
+                          settings.LANGUAGES[int(anchor.get_attribute('tabindex'))][0])
 
     def get_cookie(self, url, name):
         with requests.Session() as s:

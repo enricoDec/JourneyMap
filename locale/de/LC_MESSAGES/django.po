@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 12:19+0200\n"
+"POT-Creation-Date: 2020-06-30 19:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,48 +18,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:42 .\JourneyMap\views.py:7
+#: .\JourneyMap\templates\JourneyMap\base.html:44 .\JourneyMap\views.py:7
 msgid "Home"
 msgstr "Start"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:46
-#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:28
+#: .\JourneyMap\templates\JourneyMap\base.html:48
+#: .\JourneyMap\templates\JourneyMap\contact_us.html:4 .\JourneyMap\views.py:14
 msgid "Contact Us"
 msgstr "Kontaktiere uns"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:51
+#: .\JourneyMap\templates\JourneyMap\base.html:53
 msgid "My Journey"
 msgstr "Meine Reisen"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:53
+#: .\JourneyMap\templates\JourneyMap\base.html:55
+#| msgid "Berlin-Rome"
 msgid "Berlin-Rom"
 msgstr "Berlin-Rom"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:54
+#: .\JourneyMap\templates\JourneyMap\base.html:56
+#| msgid "Rome-Paris"
 msgid "Rom-Paris"
 msgstr "Rom-Paris"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:55
+#: .\JourneyMap\templates\JourneyMap\base.html:57
 msgid "Berlin-Spain"
 msgstr "Berlin-Spanien"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:80 .\JourneyMap\views.py:14
+#: .\JourneyMap\templates\JourneyMap\base.html:82
+#: .\Users\templates\Users\sign_up.html:21 .\Users\views.py:23
 msgid "Sign In"
 msgstr "Anmelden"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:81 .\JourneyMap\views.py:21
+#: .\JourneyMap\templates\JourneyMap\base.html:83
+#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:66
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:110
+#: .\JourneyMap\templates\JourneyMap\base.html:121
 msgid "Privacy Policy"
 msgstr "Datenschutzrichtlinie"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:111
+#: .\JourneyMap\templates\JourneyMap\base.html:122
 msgid "Legal Disclosures"
 msgstr "Impressum"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:112
+#: .\JourneyMap\templates\JourneyMap\base.html:123
 msgid "."
 msgstr "."
 
@@ -98,6 +102,67 @@ msgstr "Teilen Sie Ihre Reisen"
 #: .\JourneyMap\templates\JourneyMap\home.html:31
 msgid "Share your journeys with other people."
 msgstr "Teilen Sie Ihre Reisen mit anderen Leuten."
+
+#: .\Users\forms.py:9
+msgid "Email"
+msgstr "Email"
+
+#: .\Users\forms.py:9
+msgid "Please enter a valid Email"
+msgstr "Bitte geben Sie eine gültige Email-Adresse ein"
+
+#: .\Users\forms.py:10
+msgid "Name"
+msgstr "Name"
+
+#: .\Users\forms.py:11
+msgid "Surname"
+msgstr "Nachname"
+
+#: .\Users\managers.py:10
+msgid "The Email must be set"
+msgstr "Die E-Mail muss eingestellt sein"
+
+#: .\Users\managers.py:12
+msgid "The Username must be set"
+msgstr "Der Benutzername muss festgelegt sein"
+
+#: .\Users\templates\Users\sign_up.html:11
+msgid "Register"
+msgstr "Registrieren"
+
+#: .\Users\templates\Users\sign_up.html:20
+msgid "Already have an Account ?"
+msgstr "Haben sie bereits ein Konto?"
+
+#: .\Users\templates\Users\sign_up_email.html:9
+msgid "Hi "
+msgstr "Hallo "
+
+#: .\Users\templates\Users\sign_up_email.html:10
+msgid "Thanks for signing up with JourneyMap!"
+msgstr "Vielen Dank, dass Sie sich bei JourneyMap angemeldet haben!"
+
+#: .\Users\templates\Users\sign_up_email.html:11
+msgid "You must follow this link to activate your account:"
+msgstr "Sie müssen diesem Link folgen, um Ihr Konto zu aktivieren:"
+
+#: .\Users\views.py:56
+#| msgid "Start your journey"
+msgid "Activate your account"
+msgstr "Beginnen Sie Ihre Reise"
+
+#: .\Users\views.py:60
+msgid "Please confirm your email address to complete the registration"
+msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung abzuschließen"
+
+#: .\Users\views.py:85
+msgid "Activation successful!"
+msgstr "Aktivierung erfolgreich!"
+
+#: .\Users\views.py:88
+msgid "Activation link is invalid!"
+msgstr "Aktivierungslink ist ungültig!"
 
 #~ msgid "Contacts"
 #~ msgstr "Kontakte"
