@@ -7,8 +7,8 @@ A Web Application that creates a "Journey Map" from pictures.
 - Translation (Language Picker in Navbar, change language feature) :heavy_check_mark:
 - Registration (Sign Up, Custom User Model, email authentication)
 - Contact Form (sends contact form per email)
-- User-managment (Login, Change Password)
-- Profile (Profile picture, Profile View (Merge Change Password View with Profile View))
+- User-managment (Login)
+- Profile (Profile picture, Profile View, Change Password View)
 - Pwd Reset (Forgot your password with email)
 - Journeys (Journey and Image Model, View (List View with all User Journeys))
 - Image API (Read Exif Data from images)
