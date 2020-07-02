@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+    <h3>{% trans 'Hello ' %} {{ name }},</h3>
+    <p>{% trans 'Thank you for contacting us.' %}</p>
+    <p>{% trans 'We will reply to your message soon.' %}</p>
+    <p>{% trans 'Your message:' %}</p>
+    {{ message | linebreaks }}
+    <p>{% trans "This is an automated response." %}</p>
+</body>
+</html>
