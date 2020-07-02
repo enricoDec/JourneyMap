@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from WebApplication import settings
 
 import requests
+import time
 
 
 class SeleniumTests(StaticLiveServerTestCase):
@@ -45,14 +46,14 @@ class SeleniumTests(StaticLiveServerTestCase):
         bg_div_style = self.selenium.find_element_by_xpath(
             '//div[@class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"]').get_attribute(
             'style')
-        self.check_200_response(self.live_server_url + bg_div_style.split('url("', 1)[1].split('"', 1)[0])
+        self.check_200_response(self.live_server_url + bg_div_style.split('url("/', 1)[1].split('"', 1)[0])
 
     def check_200_response(self, url):
         r = requests.get(url)
         try:
             self.assertEqual(r.status_code, 200)
         except AssertionError as e:
-            self.verificationErrors.append(url + ' delivered response code of ' + r.status_code)
+            raise AssertionError(url + ' delivered response code of ' + str(r.status_code))
 
     def test_translation_select(self):
         self.selenium.find_element_by_xpath('//button[@class="btn dropdown-toggle btn-default"]').click()
