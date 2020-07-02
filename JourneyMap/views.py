@@ -49,41 +49,12 @@ def contact(request):
                 message.content_subtype = 'html'
                 message.send()
 
-                messages.success(request, _('Thank you, the message was send.'))
+                messages.success(request, _('Thank you, your message was send.'))
                 return redirect('JourneyMap_home')
             except BadHeaderError:
                 messages.warning(request, _('An error occurred, please try again'))
                 return redirect('JourneyMap_contact_us')
 
-            # # To
-            # receiver = mail.settings.EMAIL_HOST_USER
-            #
-            # # From
-            # name = request.POST.get('name', '')
-            # sender = request.POST.get('email', '')
-            # user_message = request.POST.get('message', '')
-            #
-            # try:
-            #     # Format
-            #     subject = name + " has send a Contact Form"
-            #     message = (
-            #         f"Contact Form was send:\n\n"
-            #         f"NAME: {name}.\n"
-            #         f"FROM: {sender}.\n"
-            #         f"MESSAGE:\n{user_message}.\n"
-            #     )
-            #
-            #     send_mail(
-            #         subject,
-            #         message,
-            #         receiver,
-            #         [receiver],
-            #         fail_silently=False,
-            #     )
-            #     messages.success(request, _(f'Contact Form Send!'))
-            #     return redirect('JourneyMap_home')
-            # except BadHeaderError:
-            #     return HttpResponse('Invalid header found.')
     else:
         form = ContactForm
 
@@ -92,10 +63,3 @@ def contact(request):
         'form': form
     }
     return render(request, 'JourneyMap/contact_us.html', context)
-
-
-def contact_thanks(request):
-    context = {
-        'title': _('Thanks')
-    }
-    return render(request, 'JourneyMap/contact_us_thanks.html', context)
