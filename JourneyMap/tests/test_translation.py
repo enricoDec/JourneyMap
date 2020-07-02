@@ -8,9 +8,7 @@ from selenium.webdriver.common.by import By
 from WebApplication import settings
 
 import requests
-
-
-# Create your tests here.
+import time
 
 
 class SeleniumTests(StaticLiveServerTestCase):
@@ -30,7 +28,7 @@ class SeleniumTests(StaticLiveServerTestCase):
         super(SeleniumTests, cls).tearDownClass()
 
     def test_routes(self):
-        self.selenium.get('http://localhost:8000/')
+        self.selenium.get(self.live_server_url)
         self.assertEqual(self.selenium.title, 'Journey Map - ' + _('Home'))
 
         element = self.selenium.find_element_by_xpath('//a[@class="nav-link" and .=\'' + _('Contact Us') + '\']')
@@ -39,7 +37,7 @@ class SeleniumTests(StaticLiveServerTestCase):
         self.assertEqual(self.selenium.title, 'Journey Map - ' + _('Contact Us'))
 
     def test_images_for_200_response(self):
-        self.selenium.get('http://localhost:8000/')
+        self.selenium.get(self.live_server_url)
         example_images = self.selenium.find_elements(By.TAG_NAME, 'img')
 
         for image in example_images:
@@ -48,14 +46,14 @@ class SeleniumTests(StaticLiveServerTestCase):
         bg_div_style = self.selenium.find_element_by_xpath(
             '//div[@class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"]').get_attribute(
             'style')
-        self.check_200_response('http://localhost:8000' + bg_div_style.split('url("', 1)[1].split('"', 1)[0])
+        self.check_200_response(self.live_server_url + bg_div_style.split('url("/', 1)[1].split('"', 1)[0])
 
     def check_200_response(self, url):
         r = requests.get(url)
         try:
             self.assertEqual(r.status_code, 200)
         except AssertionError as e:
-            self.verificationErrors.append(url + ' delivered response code of ' + r.status_code)
+            raise AssertionError(url + ' delivered response code of ' + str(r.status_code))
 
     def test_translation_select(self):
         self.selenium.find_element_by_xpath('//button[@class="btn dropdown-toggle btn-default"]').click()
@@ -68,7 +66,7 @@ class SeleniumTests(StaticLiveServerTestCase):
 
     def check_translation(self, anchor):
         anchor.click()
-        self.assertEquals(self.get_cookie('http://localhost:8000/', 'django_language'),
+        self.assertEquals(self.get_cookie(self.live_server_url, 'django_language'),
                           settings.LANGUAGES[int(anchor.get_attribute('tabindex'))][0])
 
     def get_cookie(self, url, name):
