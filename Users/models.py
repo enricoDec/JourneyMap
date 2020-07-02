@@ -16,7 +16,7 @@ class User(AbstractUser):
     is_active = models.BooleanField(default=False)
     date_joined = models.DateField(default=timezone.now)
 
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['email']
 
     objects = CustomUserManager()
 
