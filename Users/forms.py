@@ -1,7 +1,8 @@
 from django import forms
-from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 from django.utils.translation import ugettext_lazy as _
+
+from .models import User
 
 
 class UserRegister(UserCreationForm):
@@ -10,7 +11,7 @@ class UserRegister(UserCreationForm):
     last_name = forms.CharField(max_length=254, label=_(u'Surname'))
 
     class Meta:
-        model = get_user_model()
+        model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 
@@ -23,5 +24,5 @@ class UserLogin(AuthenticationForm):
     )
 
     class Meta:
-        model = get_user_model()
+        model = User
         fields = ['username', 'password']
