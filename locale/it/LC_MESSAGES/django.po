@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-01 17:03+0200\n"
+"POT-Creation-Date: 2020-07-03 12:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,40 +30,54 @@ msgstr "E-mail"
 msgid "Message"
 msgstr "Messaggio"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:44 .\JourneyMap\tests.py:34
-#: .\JourneyMap\views.py:15
+#: .\JourneyMap\templates\JourneyMap\base.html:39
+#: .\JourneyMap\tests\test_integration.py:50
+#: .\JourneyMap\tests\test_translation.py:32 .\JourneyMap\views.py:15
 msgid "Home"
 msgstr "Home"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:48
+#: .\JourneyMap\templates\JourneyMap\base.html:43
 #: .\JourneyMap\templates\JourneyMap\contact_us.html:11
-#: .\JourneyMap\tests.py:36 .\JourneyMap\tests.py:39 .\JourneyMap\views.py:91
+#: .\JourneyMap\tests\test_integration.py:22
+#: .\JourneyMap\tests\test_integration.py:79
+#: .\JourneyMap\tests\test_integration.py:107
+#: .\JourneyMap\tests\test_translation.py:34
+#: .\JourneyMap\tests\test_translation.py:37 .\JourneyMap\views.py:62
 msgid "Contact Us"
 msgstr "Contattaci"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:53
+#: .\JourneyMap\templates\JourneyMap\base.html:48
 msgid "My Journey"
 msgstr "Il mio viaggio"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:55
+#: .\JourneyMap\templates\JourneyMap\base.html:50
 msgid "Berlin-Rom"
 msgstr "Berlino-Roma"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:56
+#: .\JourneyMap\templates\JourneyMap\base.html:51
 msgid "Rom-Paris"
 msgstr "Roma-Parigi"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:57
+#: .\JourneyMap\templates\JourneyMap\base.html:52
 msgid "Berlin-Spain"
 msgstr "Berlino-Spagna"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:82
-#: .\Users\templates\Users\sign_up.html:21 .\Users\views.py:23
+#: .\JourneyMap\templates\JourneyMap\base.html:78 .\Users\views.py:92
+msgid "Profile"
+msgstr "Profilo"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:79
+msgid "Logout"
+msgstr "Logout"
+
+#: .\JourneyMap\templates\JourneyMap\base.html:81
+#: .\Users\templates\Users\sign_up.html:21
 msgid "Sign In"
 msgstr "Accedi"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:83
-#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:66
+#: .\JourneyMap\templates\JourneyMap\base.html:82
+#: .\Users\templates\Users\sign_in.html:22
+#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:62
 msgid "Sign Up"
 msgstr "Iscriviti"
 
@@ -92,7 +106,6 @@ msgid "User: "
 msgstr "Utente: "
 
 #: .\JourneyMap\templates\JourneyMap\contact_us_email.html:11
-#| msgid "Email"
 msgid "Email: "
 msgstr "E-mail: "
 
@@ -113,7 +126,6 @@ msgid "We will reply to your message soon."
 msgstr "Risponderemo al tuo messaggio al più presto."
 
 #: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:12
-#| msgid "Message"
 msgid "Your message:"
 msgstr "Il tuo Messaggio:"
 
@@ -166,16 +178,13 @@ msgid "We received your message"
 msgstr "Abbiamo ricevuto il tuo messaggio"
 
 #: .\JourneyMap\views.py:52
-msgid "Thank you, the message was send."
+#| msgid "Thank you, the message was send."
+msgid "Thank you, your message was send."
 msgstr "Grazie, il messaggio è stato inviato."
 
 #: .\JourneyMap\views.py:55
 msgid "An error occurred, please try again"
 msgstr "Si è verificato un errore. Si prega di riprovare"
-
-#: .\JourneyMap\views.py:99
-msgid "Thanks"
-msgstr "Grazie"
 
 #: .\Users\forms.py:9
 msgid "Please enter a valid Email"
@@ -185,6 +194,14 @@ msgstr "Inserisci una E-mail valida"
 msgid "Surname"
 msgstr "Cognome"
 
+#: .\Users\forms.py:19
+msgid "Username or Email"
+msgstr "Username o E-mail"
+
+#: .\Users\forms.py:21
+msgid "Password"
+msgstr "Password"
+
 #: .\Users\managers.py:10
 msgid "The Email must be set"
 msgstr "E-mail è necessaria"
@@ -192,6 +209,26 @@ msgstr "E-mail è necessaria"
 #: .\Users\managers.py:12
 msgid "The Username must be set"
 msgstr "Username è necessario"
+
+#: .\Users\templates\Users\sign_in.html:12
+msgid "Log In"
+msgstr "Accedi"
+
+#: .\Users\templates\Users\sign_in.html:16
+msgid "Login"
+msgstr "accedi"
+
+#: .\Users\templates\Users\sign_in.html:21
+msgid "Do you need to Register ?"
+msgstr "Hai bisogno di registrati ?"
+
+#: .\Users\templates\Users\sign_out.html:5
+msgid "You have been succefully logged out!"
+msgstr "Sei stato disconnesso con successo!"
+
+#: .\Users\templates\Users\sign_out.html:8
+msgid "Log In Again"
+msgstr "Accedi nuovamente"
 
 #: .\Users\templates\Users\sign_up.html:11
 msgid "Register"
@@ -213,21 +250,24 @@ msgstr "Grazie per esserti iscritto a JourneyMap!"
 msgid "You must follow this link to activate your account:"
 msgstr "Segui questo link per attivare il tuo account:"
 
-#: .\Users\views.py:56
+#: .\Users\views.py:50
 msgid "Activate your account"
 msgstr "Inizia il tuo viaggio"
 
-#: .\Users\views.py:60
+#: .\Users\views.py:54
 msgid "Please confirm your email address to complete the registration"
 msgstr "Conferma la tua E-mail prima di procedere"
 
-#: .\Users\views.py:85
+#: .\Users\views.py:80
 msgid "Activation successful!"
 msgstr "Attivazione riuscita"
 
-#: .\Users\views.py:88
+#: .\Users\views.py:83
 msgid "Activation link is invalid!"
 msgstr "Link per la attivazione è invalido!"
+
+#~ msgid "Thanks"
+#~ msgstr "Grazie"
 
 #~ msgid "Thanks !"
 #~ msgstr "Grazie !"
