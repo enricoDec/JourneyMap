@@ -137,4 +137,4 @@ def password_done(request):
 
 def password_complete(request):
     messages.success(request, _('Your password has been updated.'))
-    return redirect('JourneyMap_home')
+    return redirect('login')
