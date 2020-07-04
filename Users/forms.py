@@ -28,14 +28,6 @@ class UserLogin(AuthenticationForm):
         fields = ['username', 'password']
 
 
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
-
-    class Meta:
-        model = User
-        fields = []
-
-
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
