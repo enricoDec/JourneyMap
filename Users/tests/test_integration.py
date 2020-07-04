@@ -6,8 +6,6 @@ from django.utils.translation import gettext as _
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.webdriver import WebDriver
 
-import time
-
 
 class SeleniumTests(StaticLiveServerTestCase):
     @classmethod
@@ -82,3 +80,44 @@ class SeleniumTests(StaticLiveServerTestCase):
         )
         user.is_active = active
         user.save()
+
+    def test_profile_if_logged(self):
+        self.create_user(username='TEST_USER_2', email='test@journey-map.eu', active=True)
+
+        url = self.live_server_url + reverse('login')
+        self.selenium.get(url)
+
+        self.selenium.find_element_by_id('id_username').send_keys('TEST_USER_2')
+        self.selenium.find_element_by_id('id_password').send_keys('testing321')
+        self.selenium.find_element_by_xpath('//button[@class="btn btn-outline-info" and @type="submit"]').click()
+
+        profile_url = self.live_server_url + reverse('profile')
+        self.selenium.get(profile_url)
+
+        self.assertEqual(self.selenium.title, 'Journey Map - ' + _('Profile'))
+
+    def test_profile_if_not_logged(self):
+        profile_url = self.live_server_url + reverse('profile')
+        self.selenium.get(profile_url)
+
+        self.assertNotEqual(self.selenium.title, 'Journey Map - ' + _('Profile'))
+
+    def test_profile_change_password(self):
+        self.create_user(username='TEST_USER', email='test@journey-map.eu', active=True)
+
+        url = self.live_server_url + reverse('login')
+        self.selenium.get(url)
+
+        self.selenium.find_element_by_id('id_username').send_keys('TEST_USER')
+        self.selenium.find_element_by_id('id_password').send_keys('testing321')
+        self.selenium.find_element_by_xpath('//button[@class="btn btn-outline-info" and @type="submit"]').click()
+
+        profile_url = self.live_server_url + reverse('profile')
+        self.selenium.get(profile_url)
+        self.selenium.find_element_by_xpath('//*[@id="id_old_password"]').send_keys('testing321')
+        self.selenium.find_element_by_xpath('//*[@id="id_new_password1"]').send_keys('testing9876')
+        self.selenium.find_element_by_xpath('//*[@id="id_new_password2"]').send_keys('testing9876')
+        self.selenium.find_element_by_xpath('/html/body/main/div[2]/div[2]/form[2]/div/button').click()
+        confirm_message = self.selenium.find_element_by_xpath('/html/body/main/div[1]/div')
+
+        self.assertEqual(confirm_message.text, 'Password information Updated!')
