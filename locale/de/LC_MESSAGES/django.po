@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-03 12:09+0200\n"
+"POT-Creation-Date: 2020-07-04 18:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\JourneyMap\forms.py:6 .\Users\forms.py:10
+#: .\Users\templates\Users\profile.html:22
 msgid "Name"
 msgstr "Name"
 
 #: .\JourneyMap\forms.py:7 .\Users\forms.py:9
+#: .\Users\templates\Users\profile.html:18
 msgid "Email"
 msgstr "Email"
 
@@ -33,6 +35,7 @@ msgstr "Nachricht"
 #: .\JourneyMap\templates\JourneyMap\base.html:39
 #: .\JourneyMap\tests\test_integration.py:50
 #: .\JourneyMap\tests\test_translation.py:32 .\JourneyMap\views.py:15
+#: .\Users\tests\test_integration.py:42 .\Users\tests\test_integration.py:58
 msgid "Home"
 msgstr "Start"
 
@@ -62,7 +65,9 @@ msgstr "Rom-Paris"
 msgid "Berlin-Spain"
 msgstr "Berlin-Spanien"
 
-#: .\JourneyMap\templates\JourneyMap\base.html:78 .\Users\views.py:92
+#: .\JourneyMap\templates\JourneyMap\base.html:78
+#: .\Users\tests\test_integration.py:99 .\Users\tests\test_integration.py:105
+#: .\Users\views.py:126
 msgid "Profile"
 msgstr "Profil"
 
@@ -77,7 +82,7 @@ msgstr "Anmelden"
 
 #: .\JourneyMap\templates\JourneyMap\base.html:82
 #: .\Users\templates\Users\sign_in.html:22
-#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:62
+#: .\Users\templates\Users\sign_up.html:15 .\Users\views.py:64
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
@@ -127,7 +132,7 @@ msgstr "Wir werden Ihre Nachricht bald beantworten."
 
 #: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:12
 msgid "Your message:"
-msgstr "Nachricht"
+msgstr "Nachricht:"
 
 #: .\JourneyMap\templates\JourneyMap\contact_us_user_email.html:14
 msgid "This is an automated response."
@@ -178,7 +183,6 @@ msgid "We received your message"
 msgstr "Wir haben Ihre Nachricht erhalten"
 
 #: .\JourneyMap\views.py:52
-#| msgid "Thank you, the message was send."
 msgid "Thank you, your message was send."
 msgstr "Vielen Dank, die Nachricht wurde gesendet."
 
@@ -210,6 +214,39 @@ msgstr "Die E-Mail muss eingestellt sein"
 msgid "The Username must be set"
 msgstr "Der Benutzername muss festgelegt sein"
 
+#: .\Users\templates\Users\profile.html:11
+#| msgid "Profile"
+msgid "Profile Info"
+msgstr "Profil Information"
+
+#: .\Users\templates\Users\profile.html:14
+#| msgid "Surname"
+msgid "Username"
+msgstr "Nachname"
+
+#: .\Users\templates\Users\profile.html:32
+#| msgid "Profile"
+msgid "Profile Picture"
+msgstr "Profilbild"
+
+#: .\Users\templates\Users\profile.html:37
+msgid "Update Picture"
+msgstr "Bild aktualisieren"
+
+#: .\Users\templates\Users\profile.html:44
+#| msgid "Password"
+msgid "Profile Password"
+msgstr "Passwort"
+
+#: .\Users\templates\Users\profile.html:45
+msgid "Change your password: "
+msgstr "Ändern Sie Ihr Passwort: "
+
+#: .\Users\templates\Users\profile.html:50
+#| msgid "Password"
+msgid "Update Password"
+msgstr "Kennwort aktualisieren"
+
 #: .\Users\templates\Users\sign_in.html:12
 msgid "Log In"
 msgstr "Anmeldung"
@@ -222,8 +259,9 @@ msgstr "Anmelden"
 msgid "Do you need to Register ?"
 msgstr "Müssen Sie sich registrieren?"
 
-#: .\Users\templates\Users\sign_out.html:5
-msgid "You have been successfully logged out!"
+#: .\Users\templates\Users\sign_out.html:6
+#| msgid "You have been successfully logged out!"
+msgid "You have been succefully logged out!"
 msgstr "Du hast dich erfolgreich abgemeldet!"
 
 #: .\Users\templates\Users\sign_out.html:8
@@ -250,21 +288,37 @@ msgstr "Vielen Dank, dass Sie sich bei JourneyMap angemeldet haben!"
 msgid "You must follow this link to activate your account:"
 msgstr "Sie müssen diesem Link folgen, um Ihr Konto zu aktivieren:"
 
-#: .\Users\views.py:50
+#: .\Users\views.py:52
 msgid "Activate your account"
 msgstr "Beginnen Sie Ihre Reise"
 
-#: .\Users\views.py:54
+#: .\Users\views.py:56
 msgid "Please confirm your email address to complete the registration"
 msgstr "Bitte bestätigen Sie Ihre E-Mail-Adresse, um die Registrierung"
 
-#: .\Users\views.py:80
+#: .\Users\views.py:74
+msgid "You have been successfully logged out!"
+msgstr "Du hast dich erfolgreich abgemeldet!"
+
+#: .\Users\views.py:90
 msgid "Activation successful!"
 msgstr "Aktivierung erfolgreich!"
 
-#: .\Users\views.py:83
+#: .\Users\views.py:93
 msgid "Activation link is invalid!"
 msgstr "Aktivierungslink ist ungültig!"
+
+#: .\Users\views.py:108
+msgid "Profile picture updated!"
+msgstr "Profilbild aktualisiert!"
+
+#: .\Users\views.py:111 .\Users\views.py:120
+msgid "Please correct the error below."
+msgstr "Bitte korrigieren Sie den Fehler unten."
+
+#: .\Users\views.py:117
+msgid "Password information Updated!"
+msgstr "Passwort aktualisiert!"
 
 #~ msgid "Thanks"
 #~ msgstr "Danke"
