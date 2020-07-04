@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
@@ -63,6 +63,13 @@ def sign_up(request):
         'form': form
     }
     return render(request, 'Users/sign_up.html', context)
+
+@never_cache
+@csrf_protect
+def sign_out(request):
+    logout(request)
+    messages.success(request, _('You have been successfully logged out!'))
+    return redirect('JourneyMap_home')
 
 
 class ActivateUser(View):

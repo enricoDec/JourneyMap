@@ -223,7 +223,7 @@ msgid "Do you need to Register ?"
 msgstr "Hai bisogno di registrati ?"
 
 #: .\Users\templates\Users\sign_out.html:5
-msgid "You have been succefully logged out!"
+msgid "You have been successfully logged out!"
 msgstr "Sei stato disconnesso con successo!"
 
 #: .\Users\templates\Users\sign_out.html:8

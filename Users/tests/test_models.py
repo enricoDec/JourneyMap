@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db.utils import IntegrityError
-from django.test import TestCase
+from django.test import TestCase, Client
 
 
 class TestModels(TestCase):
@@ -87,3 +87,32 @@ class TestModels(TestCase):
                 first_name='TEST',
                 last_name='TEST_LAST_NAME'
             )
+
+    def test_login_user_not_active(self):
+        User = get_user_model()
+
+        user = User.objects.create_user(
+            username='TEST_USER',
+            email='test@journey-map.eu',
+            password='testing321',
+            first_name='TEST',
+            last_name='TEST_LAST_NAME'
+        )
+
+        client = Client()
+        self.assertFalse(client.login(username='TEST_USER', password='testing321'))
+
+    def test_login_user_active(self):
+        User = get_user_model()
+
+        user = User.objects.create_user(
+            username='TEST_USER',
+            email='test@journey-map.eu',
+            password='testing321',
+            first_name='TEST',
+            last_name='TEST_LAST_NAME'
+        )
+        user.is_active = True
+
+        client = Client()
+        self.assertTrue(client.login(username='TEST_USER', password='testing321'))

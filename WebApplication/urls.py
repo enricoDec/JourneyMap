@@ -27,7 +27,7 @@ urlpatterns = [
     path('activate/<uidb64>/<token>', user_view.ActivateUser.as_view(), name='activate'),
     path('login/', auth_views.LoginView.as_view(template_name='Users/sign_in.html', authentication_form=UserLogin,
                                                 redirect_authenticated_user=True), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='Users/sign_out.html'), name='logout'),
+    path('logout/', user_view.sign_out, name='logout'),
     path('profile/', user_view.profile, name='profile'),
     path('', include('JourneyMap.urls')),
 ]
