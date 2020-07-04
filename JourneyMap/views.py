@@ -1,10 +1,8 @@
 from django.contrib import messages
-from django.core import mail
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+from django.core.mail import BadHeaderError
+from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-from django.core.mail import EmailMessage
 from django.utils.translation import gettext as _
 
 from .forms import ContactForm

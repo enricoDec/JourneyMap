@@ -128,3 +128,13 @@ def profile(request):
         'password_form': password_form,
     }
     return render(request, 'Users/profile.html', context)
+
+
+def password_done(request):
+    messages.success(request, _('An email has been sent'))
+    return redirect('JourneyMap_home')
+
+
+def password_complete(request):
+    messages.success(request, _('Your password has been updated.'))
+    return redirect('JourneyMap_home')
