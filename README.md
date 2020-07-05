@@ -8,8 +8,8 @@ A Web Application that creates a "Journey Map" from pictures.
 - Registration (Sign Up, Custom User Model, email authentication) :heavy_check_mark:
 - Contact Form (sends contact form per email) :heavy_check_mark:
 - User-managment (Login) :heavy_check_mark:
-- Profile (Profile picture, Profile View, Change Password View)
-- Pwd Reset (Forgot your password with email)
+- Profile (Profile picture, Profile View, Change Password View) :heavy_check_mark:
+- Pwd Reset (Forgot your password with email) :heavy_check_mark:
 - Journeys (Journey and Image Model, View (List View with all User Journeys))
 - Image API (Read Exif Data from images)
 - CDP (Content delivery provider ("hide" image location and file structure)
@@ -26,7 +26,7 @@ A Web Application that creates a "Journey Map" from pictures.
 
 -   Translation (Language Picker in Navbar, change language feature) (**Marcel**) :heavy_check_mark:
     
--   Profile (Profile picture, Profile View (Merge Change Password View with Profile View)) (**Enrico**)
+-   Profile (Profile picture, Profile View (Merge Change Password View with Profile View)) (**Enrico**) :heavy_check_mark:
 
     
 
@@ -40,7 +40,7 @@ A Web Application that creates a "Journey Map" from pictures.
     
 - User-managment (Login, Change Password) (**Marcel**) :heavy_check_mark:
 
-- Pwd Reset (Forgot your password with email) (**Enrico**)
+- Pwd Reset (Forgot your password with email) (**Enrico**) :heavy_check_mark:
 
 - Image API (Read Exif Data from images) (**Enrico**)
 
