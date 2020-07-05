@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 from django.utils.translation import ugettext_lazy as _
 
 from .models import User
@@ -13,3 +13,16 @@ class UserRegister(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+
+class UserLogin(AuthenticationForm):
+    username = UsernameField(label=_('Username or Email'), widget=forms.TextInput(attrs={'autofocus': True}))
+    password = forms.CharField(
+        label=_("Password"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={'autocomplete': 'current-password'}),
+    )
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']

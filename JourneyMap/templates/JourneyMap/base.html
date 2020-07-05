@@ -74,8 +74,13 @@
 
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'login' %}">{% trans "Sign In" %}</a>
-                <a class="nav-item nav-link" href="{% url 'register' %}">{% trans "Sign Up" %}</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{% url 'profile' %}">{% trans "Profile" %}</a>
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="{% url 'login' %}">{% trans "Sign In" %}</a>
+                    <a class="nav-item nav-link" href="{% url 'register' %}">{% trans "Sign Up" %}</a>
+                {% endif %}
             </div>
         </div>
     </nav>

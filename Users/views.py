@@ -1,5 +1,6 @@
 from django.contrib import messages
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect
@@ -16,13 +17,6 @@ from .forms import UserRegister
 from .tokens import account_activation_token
 
 User = get_user_model()
-
-
-def sign_in(request):
-    context = {
-        'title': _('Sign In')
-    }
-    return render(request, 'Users/sign_in.html', context)
 
 
 @never_cache
@@ -58,7 +52,9 @@ def sign_up(request):
             message.send()
 
             messages.success(request, _('Please confirm your email address to complete the registration'))
-            return redirect("JourneyMap_home")
+            return redirect('JourneyMap_home')
+    if request.user.is_authenticated:
+        return redirect('JourneyMap_home')
     else:
         form = UserRegister()
 
@@ -67,6 +63,13 @@ def sign_up(request):
         'form': form
     }
     return render(request, 'Users/sign_up.html', context)
+
+@never_cache
+@csrf_protect
+def sign_out(request):
+    logout(request)
+    messages.success(request, _('You have been successfully logged out!'))
+    return redirect('JourneyMap_home')
 
 
 class ActivateUser(View):
@@ -77,13 +80,22 @@ class ActivateUser(View):
         except(TypeError, ValueError, OverflowError, User.DoesNotExist):
             user = None
         if user is not None and account_activation_token.check_token(user, token):
-            # activate user and login:
+            # activate user adn redirect to login:
             user.is_active = True
             user.save()
-            login(request, user)
 
             messages.success(request, _('Activation successful!'))
-            return redirect('JourneyMap_home')
+            return redirect('login')
         else:
             messages.warning(request, _('Activation link is invalid!'))
             return redirect('JourneyMap_home')
+
+
+@login_required
+@never_cache
+@csrf_protect
+def profile(request):
+    context = {
+        'title': _('Profile'),
+    }
+    return render(request, 'Users/profile.html', context)

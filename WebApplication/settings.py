@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ezs!jwevqt%9u9l^un272i6ndr*=7@(+w0ro_ome$exs(d48*n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,6 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
+        'NAME': 'sys',
         'PORT': '3306',
         'OPTIONS': {
             'read_default_file': 'config/dbTemplate.cnf',
@@ -144,6 +145,7 @@ LANGUAGES = [
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 AUTH_USER_MODEL = 'Users.User'
+AUTHENTICATION_BACKENDS = ['Users.backend.EmailBackend']
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
