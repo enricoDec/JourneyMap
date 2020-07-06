@@ -121,3 +121,18 @@ class SeleniumTests(StaticLiveServerTestCase):
         confirm_message = self.selenium.find_element_by_xpath('/html/body/main/div[1]/div')
 
         self.assertEqual(confirm_message.text, 'Password information Updated!')
+
+    def test_forgot_password(self):
+        self.create_user(username='TEST', email='test@journey-map.eu', active=True)
+
+        url = self.live_server_url + reverse('password_reset')
+        self.selenium.get(url)
+        self.selenium.find_element_by_xpath('//*[@id="id_email"]').send_keys('test@journey-map.eu')
+        self.selenium.find_element_by_xpath('/html/body/main/div[2]/form/div/button').click()
+
+        current_url = self.selenium.current_url.__str__()
+        self.assertEqual(current_url.replace(self.live_server_url, ''), reverse('JourneyMap_home'))
+
+        confirm_message = self.selenium.find_element_by_xpath('/html/body/main/div[1]/div')
+
+        self.assertEqual(confirm_message.text, 'An email has been sent')
