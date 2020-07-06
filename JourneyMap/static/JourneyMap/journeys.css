@@ -1,4 +1,9 @@
+:root {
+    --plus-size: 100px;
+}
+
 html, body {
+    height: 100%;
     background-color: #f8f9fa !important;
 }
 
@@ -45,4 +50,48 @@ html, body {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
     border-left: none !important;
+}
+
+.plus-card {
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+    display:-webkit-box;
+}
+
+.plus-card::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #475059;
+    width: 5px;
+    margin-left: -2.5px;
+    left: 50%;
+    top: calc((100% - var(--plus-size)) / 2);
+    bottom: calc((100% - var(--plus-size)) / 2);
+    z-index: 9;
+    border-radius: 2px;
+}
+
+.plus-card::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #475059;
+    height: 5px;
+    margin-top: -2.5px;
+    top: 50%;
+    left: calc((100% - var(--plus-size)) / 2);
+    right: calc((100% - var(--plus-size)) / 2);
+    z-index: 9;
+    border-radius: 2px;
+}
+
+.plus-card a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: " ";
 }
