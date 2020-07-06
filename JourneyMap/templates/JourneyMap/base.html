@@ -44,12 +44,10 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-hover="dropdown"
+                        <a class="nav-link dropdown-toggle" href="{% url 'JourneyMap_journeys' %}" id="dropdown05" data-hover="dropdown"
                            aria-haspopup="true"
                            aria-expanded="false">{% trans "My Journey" %}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <a class="dropdown-item"
-                               href="{% url 'JourneyMap_journeys' %}">{% trans "My Journeys" %}</a>
                             {% for journey in journeys %}
                                 {% if Journey.user_id == user.user_id %}
                                     {% if forloop.counter < 4 %}

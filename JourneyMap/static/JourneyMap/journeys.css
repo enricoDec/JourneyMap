@@ -1,0 +1,48 @@
+html, body {
+    background-color: #f8f9fa !important;
+}
+
+.journeys-container {
+    margin: 0 auto;
+    width: 80% !important;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.journeys-container-element {
+    margin: 0 !important;
+    width: 50%;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.journeys-container-element > div {
+    width: 100%;
+}
+
+.new-journey div .plus {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.new-journey div .plus p {
+    color: #343a40 !important;
+    font-size: 160px;
+    font-weight: 200;
+}
+
+.btn-left {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.btn-middle {
+    border-radius: 0 !important;
+    border-left: none !important;
+}
+
+.btn-right {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-left: none !important;
+}
