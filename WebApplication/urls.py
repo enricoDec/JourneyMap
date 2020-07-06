@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 from Users import views as user_view
 from Users.forms import UserLogin
@@ -31,3 +33,7 @@ urlpatterns = [
     path('profile/', user_view.profile, name='profile'),
     path('', include('JourneyMap.urls')),
 ]
+
+# Needs to be changed before deployed!!
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

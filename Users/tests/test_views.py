@@ -14,6 +14,7 @@ class TestView(TestCase):
         self.login_url = reverse('login')
         self.activate_url = reverse('activate',
                                     args=[urlsafe_base64_encode(force_bytes(uuid.uuid4())), '5hs-a6b79825b01749d91e1c'])
+        self.profile_url = reverse('profile')
 
     def test_register_GET(self):
         response = self.client.get(self.register_url)
@@ -36,3 +37,13 @@ class TestView(TestCase):
         response = self.client.post(self.register_url)
 
         self.assertEqual(response.status_code, 200)
+
+    def test_profile_GET(self):
+        response = self.client.get(self.profile_url)
+
+        self.assertEqual(response.status_code, 302)
+
+    def test_login_POST(self):
+        response = self.client.post(self.profile_url)
+
+        self.assertEqual(response.status_code, 302)

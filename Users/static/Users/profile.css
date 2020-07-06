@@ -1,0 +1,125 @@
+:root {
+    --flex-container-width: 900px;
+    --data-container-width: 350px;
+}
+
+.flex-container {
+    margin: 0 auto;
+    padding: 0 20px !important;
+    max-width: var(--flex-container-width);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd !important;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.data-container {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    width: var(--data-container-width);
+    min-width: var(--data-container-width);
+    max-width: var(--data-container-width);
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+}
+
+.data-container legend {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    margin-bottom: 10px !important;
+    width: calc(100% - 30px);
+    font-size: 24px;
+    text-overflow: ellipsis;
+}
+
+.data-container img {
+    margin-bottom: 8px !important;
+    width: 100%;
+}
+
+.data-container .data {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-container .data .row {
+    margin: 0 15px 0 15px;
+    padding: 0;
+    width: calc(100% - 30px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.data-container .data .row p {
+    margin: 5px 0 5px 0;
+    padding: 0;
+}
+
+.data-container .data .row .column-1 {
+    width: calc(40% - 5px);
+}
+
+.data-container .data .row .column-2 {
+    width: calc(60% - 5px);
+    display: block;
+    max-width: calc(60% - 5px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.form-container {
+    margin-left: 20px !important;
+    margin-right: 0px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    width: calc(100% - var(--data-container-width) - 30px);
+    min-width: calc(100% - var(--data-container-width) - 30px);
+    max-width: calc(100% - var(--data-container-width) - 30px);
+}
+
+@media (max-width: 900px) {
+    :root {
+        --data-container-width: 300px;
+    }
+}
+
+@media (max-width: 850px) {
+    :root {
+        --data-container-width: 250px;
+    }
+}
+
+@media (max-width: 650px) {
+    :root {
+        --data-container-width: 350px;
+    }
+
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .data-container, .form-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: calc(100% - 40px) !important;
+        min-width: calc(100% - 40px) !important;
+        max-width: calc(var(--data-container-width)) !important;
+    }
+
+    .form-container {
+        margin-top: 0 !important;
+    }
+}

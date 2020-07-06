@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 from django.utils.translation import ugettext_lazy as _
 
-from .models import User
+from .models import User, Profile
 
 
 class UserRegister(UserCreationForm):
@@ -26,3 +26,9 @@ class UserLogin(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']

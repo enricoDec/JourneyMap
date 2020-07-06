@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.utils import IntegrityError
 from django.test import TestCase, Client
+
+from Users.models import Profile
 
 
 class TestModels(TestCase):
@@ -116,3 +119,54 @@ class TestModels(TestCase):
 
         client = Client()
         self.assertTrue(client.login(username='TEST_USER', password='testing321'))
+
+    def test_profile_create(self):
+        User = get_user_model()
+
+        user = User.objects.create_user(
+            username='TEST_USER',
+            email='test@journey-map.eu',
+            password='testing321',
+            first_name='TEST',
+            last_name='TEST_LAST_NAME'
+        )
+        user.is_active = True
+
+        profile = Profile.objects.get(user_id=user.id)
+
+        self.assertEqual(profile.user_id, user.id)
+
+    def test_profile_default_image(self):
+        User = get_user_model()
+
+        user = User.objects.create_user(
+            username='TEST_USER',
+            email='test@journey-map.eu',
+            password='testing321',
+            first_name='TEST',
+            last_name='TEST_LAST_NAME'
+        )
+        user.is_active = True
+
+        profile = Profile.objects.get(user_id=user.id)
+
+        self.assertEqual(profile.image.name, 'profile_pics/default.jpg')
+
+    def test_profile_no_override_image(self):
+        User = get_user_model()
+
+        user = User.objects.create_user(
+            username='TEST_USER',
+            email='test@journey-map.eu',
+            password='testing321',
+            first_name='TEST',
+            last_name='TEST_LAST_NAME'
+        )
+        user.is_active = True
+
+        profile = Profile.objects.get(user_id=user.id)
+
+        profile.image = open(settings.MEDIA_ROOT + '/test_image/Canon_40D.jpg', 'r')
+        profile.save()
+
+        self.assertEqual(profile.image, 'profile_pics/Canon_40D.jpg')

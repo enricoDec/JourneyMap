@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from Users.forms import UserRegister
+from Users.forms import UserRegister, ProfileUpdateForm
 
 
 class TestForms(TestCase):
@@ -74,3 +74,17 @@ class TestForms(TestCase):
 
         self.assertFalse(form.is_valid())
         self.assertEqual(len(form.errors), 1)
+
+    def test_profile_form_valid(self):
+        form = ProfileUpdateForm(data={
+            'image': 'test.jpg',
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_profile_form_empty_data(self):
+        form = ProfileUpdateForm(data={
+        })
+
+        # default.jpg will be used so True
+        self.assertTrue(form.is_valid())

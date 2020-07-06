@@ -6,7 +6,7 @@ from django.urls import resolve, reverse
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 
-from Users.views import sign_up, sign_out, ActivateUser
+from Users.views import sign_up, sign_out, ActivateUser, profile
 
 
 class TestUrls(SimpleTestCase):
@@ -26,3 +26,7 @@ class TestUrls(SimpleTestCase):
     def test_logout_url_is_resolves(self):
         url = reverse('logout')
         self.assertEqual(resolve(url).func.view_class, sign_out)
+
+    def test_profile_url_is_resolves(self):
+        url = reverse('profile')
+        self.assertEqual(resolve(url).func, profile)

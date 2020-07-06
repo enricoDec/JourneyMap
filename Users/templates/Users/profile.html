@@ -1,8 +1,56 @@
-{% extends "Users/base.html" %}
+{% extends "JourneyMap/base.html" %}
+{% load crispy_forms_filters %}
 {% load i18n %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <div class="text-md-center">
-        <h1>{{ user.username }}</h1>
+    <link rel="stylesheet" type="text/css" href="{% static 'Users/profile.css' %}">
+    <div class="flex-container">
+        <div class="data-auto-height-container">
+            <div class="data-container m-5 content-section">
+                <img class="account-img" src="{{ user.profile.image.url }}">
+                <legend class="border-bottom mb-4">{% trans 'Profile Info' %}</legend>
+                <div class="data">
+                    <div class="row">
+                        <p class="column-1"><strong>{% trans 'Username' %}</strong></p>
+                        <p class="column-2">{{ user.username }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="column-1"><strong>{% trans 'Email' %}</strong></p>
+                        <p class="column-2">{{ user.email }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="column-1"><strong>{% trans 'Name' %}</strong></p>
+                        <p class="column-2">{{ user.first_name }} {{ user.last_name }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-container m-5 content-section">
+            <!-- Profile form -->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">{% trans 'Profile Picture' %}</legend>
+                    {{ profile_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit"
+                            name="picture">{% trans 'Update Picture' %}</button>
+                </div>
+            </form>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">{% trans 'Profile Password' %}</legend>
+                    <h2>{% trans 'Change your password: ' %}</h2>
+                    {{ password_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit"
+                            name="password">{% trans 'Update Password' %}</button>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock content %}
