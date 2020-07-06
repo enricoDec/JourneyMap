@@ -1,5 +1,4 @@
-# my.cnf
-[client]
+# my.cnf sample config file
 database = name
 user = username
 password = password
