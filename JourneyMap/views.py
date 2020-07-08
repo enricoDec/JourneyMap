@@ -7,10 +7,13 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.translation import gettext as _
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
 from django.views.generic import ListView, CreateView, DeleteView
 
-from .forms import ContactForm, ImageForm
+from .forms import ContactForm, ImageForm, AddJourneyForm
 from .models import Journey, Image
 
 
@@ -78,6 +81,29 @@ def contact(request):
     return render(request, 'JourneyMap/contact_us.html', context)
 
 
+@never_cache
+@csrf_protect
+def journeys(request):
+    if request.method == "POST":
+        form = AddJourneyForm(request.POST)
+        if form.is_valid():
+            journey = form.save(commit=False)
+            journey.user = request.user
+            journey.save()
+
+            return redirect('JourneyMap_journeys')
+    else:
+        form = AddJourneyForm()
+
+    qs = Journey.objects.filter(user_id=request.user.id)
+    context = {
+        'form': form,
+        'journeys': qs
+    }
+
+    return render(request, 'JourneyMap/journeys.html', context)
+
+
 class JourneyListView(LoginRequiredMixin, ListView):
     template_name = 'JourneyMap/journeys.html'
     context_object_name = 'journeys'
@@ -85,8 +111,7 @@ class JourneyListView(LoginRequiredMixin, ListView):
     ordering = ['-date_posted']
 
     def get_queryset(self):
-        self.model = Journey.objects.filter(user_id=self.request.user.id)
-        return self.model
+        return Journey.objects.filter(user_id=self.request.user.id)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)

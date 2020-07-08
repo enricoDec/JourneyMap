@@ -31,7 +31,6 @@ def sign_up(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            form.save()
 
             # One time token to confirm email
             current_site = get_current_site(request)
@@ -56,7 +55,7 @@ def sign_up(request):
 
             messages.success(request, _('Please confirm your email address to complete the registration'))
             return redirect('JourneyMap_home')
-    if request.user.is_authenticated:
+    elif request.user.is_authenticated:
         return redirect('JourneyMap_home')
     else:
         form = UserRegister()

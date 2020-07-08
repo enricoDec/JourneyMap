@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
+
 <link rel="stylesheet" href="{% static 'JourneyMap/journeys.css' %}">
 <div class="album py-5 bg-light">
     <div class="container">
@@ -24,8 +25,46 @@
                 </div>
             </div>
             {% endfor %}
-            <div class="plus-card col-md-4 card mb-4 box-shadow"><a href="#"></a></div>
+            <div class="col-md-4">
+                <div class="plus-card card mb-4 box-shadow"></div>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="modal-bg add-journey">
+    <div class="modal-container">
+        <form id="add-journey" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{% trans 'Add Journey' %}</legend>
+                {{ form }}
+            </fieldset>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-outline-secondary btn-left" type="submit">{% trans 'Save' %}</button>
+                <button id="close" class="btn btn-sm btn-outline-secondary btn-right" type="button">{% trans 'Cancel' %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal-bg delete-journey">
+    <div class="modal-container">
+        <p>{% trans "Are your sure that you want to delete the journey?" %}</p>
+        <a href="#" class ></a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.getElementsByClassName('plus-card')[0].addEventListener('click', function() {
+        document.querySelector('.add-journey').style.display = 'flex';
+        document.body.classList.add('no-scroll');
+    });
+
+    document.getElementById('close').addEventListener('click', function() {
+        document.querySelector('.add-journey').style.display = 'none';
+        document.body.classList.remove('no-scroll');
+        document.getElementById('add-journey').reset();
+    });
+</script>
 {% endblock content %}
