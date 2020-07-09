@@ -10,7 +10,19 @@
             {% for journey in journeys %}
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                <img class="card-img-top" data-src="" style="height: 225px; width: 100%; display: block;" src="https://via.placeholder.com/348x225.png" data-holder-rendered="true">
+                    {% with imagelist=images|dictvalue:journey.id %}
+                        {% if imagelist %}
+                        <div class="carousel">
+                            {% for image in imagelist %}
+                            <img class="card-img-top" data-src="" style="height: 225px; width: 100%;" src="{{image.image}}" data-holder-rendered="true">
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="empty-journey">
+                            <p>{% trans 'Empty' %}</p>
+                        </div>
+                        {% endif %}
+                    {% endwith %}
                     <div class="card-body">
                         <p class="card-text"><strong>{{journey.title}}</strong></p>
                         <div class="d-flex justify-content-between align-items-center">
@@ -66,5 +78,29 @@
         document.body.classList.remove('no-scroll');
         document.getElementById('add-journey').reset();
     });
+
+    slideShows = document.getElementsByClassName('carousel');
+
+    slideShowImages = {};
+    for (var i = 0; i < slideShows.length; i++)
+        slideShowImages[i] = slideShows[i].getElementsByClassName('card-img-top');
+
+    const nextImageDelay = 5000;
+    let imageCounters = new Array(slideShows.length).fill(0);
+
+    for (var i = 0; i < slideShows.length; i++) {
+        slideShowImages[i].item(imageCounters[i]).style.display = 'block';
+    }
+
+    setInterval(nextImage, nextImageDelay);
+
+    function nextImage() {
+        for (var i = 0; i < slideShows.length; i++) {
+            slideShowImages[i].item(imageCounters[i]).style.display = 'none';
+            imageCounters[i] = (imageCounters[i] + 1) % slideShowImages[i].length;
+            slideShowImages[i].item(imageCounters[i]).style.display = 'block';
+        }
+    }
+
 </script>
 {% endblock content %}

@@ -6,6 +6,7 @@ from django.core import mail
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.template.defaultfilters import register
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.translation import gettext as _
@@ -81,6 +82,16 @@ def contact(request):
     return render(request, 'JourneyMap/contact_us.html', context)
 
 
+@register.filter
+def empty(dict):
+    return not bool(dict)
+
+
+@register.filter
+def dictvalue(dict, key):
+    return dict.get(key)
+
+
 @never_cache
 @csrf_protect
 def journeys(request):
@@ -96,9 +107,15 @@ def journeys(request):
         form = AddJourneyForm()
 
     qs = Journey.objects.filter(user_id=request.user.id)
+    images = dict();
+
+    for journey in qs:
+        images[journey.id] = Image.objects.filter(journey=journey)[0: 5]
+
     context = {
         'form': form,
-        'journeys': qs
+        'journeys': qs,
+        'images': images
     }
 
     return render(request, 'JourneyMap/journeys.html', context)
