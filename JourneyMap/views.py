@@ -14,6 +14,8 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import ListView, CreateView, DeleteView
 
+import logging
+
 from .forms import ContactForm, ImageForm, AddJourneyForm
 from .models import Journey, Image
 
@@ -119,6 +121,23 @@ def journeys(request):
     }
 
     return render(request, 'JourneyMap/journeys.html', context)
+
+
+def delete_journey(request):
+    if request.method == "POST":
+        qs = Journey.objects.filter(id=int(request.POST.get("id", "")))
+
+        if qs.count() is 1 and qs.first().user_id == request.user.id:
+            qs.first().delete()
+        else:
+            messages.warning(request, _('You were not allowed to delete this journey!'))
+
+        return redirect('JourneyMap_journeys')
+    else:
+        if request.user.is_authenticated:
+            return redirect('JourneyMap_journeys')
+        else:
+            return redirect('JourneyMap_home')
 
 
 class JourneyListView(LoginRequiredMixin, ListView):

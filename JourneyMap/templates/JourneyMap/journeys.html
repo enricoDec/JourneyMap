@@ -29,7 +29,7 @@
                             <div class="btn-group">
                                 <a href=""><button type="button" class="btn btn-sm btn-outline-secondary btn-left">View</button></a>
                                 <a href=""><button type="button" class="btn btn-sm btn-outline-secondary btn-middle">Edit</button></a>
-                                <a href=""><button type="button" class="btn btn-sm btn-outline-secondary btn-right">Delete</button></a>
+                                <button name="{{journey.id}}" type="button" class="delete btn btn-sm btn-outline-secondary btn-right">Delete</button>
                             </div>
                             <small class="text-muted">9 min</small>
                         </div>
@@ -54,7 +54,7 @@
             </fieldset>
             <div class="btn-group">
                 <button class="btn btn-sm btn-outline-secondary btn-left" type="submit">{% trans 'Save' %}</button>
-                <button id="close" class="btn btn-sm btn-outline-secondary btn-right" type="button">{% trans 'Cancel' %}</button>
+                <button id="close-add" class="btn btn-sm btn-outline-secondary btn-right" type="button">{% trans 'Cancel' %}</button>
             </div>
         </form>
     </div>
@@ -62,8 +62,18 @@
 
 <div class="modal-bg delete-journey">
     <div class="modal-container">
-        <p>{% trans "Are your sure that you want to delete the journey?" %}</p>
-        <a href="#" class ></a>
+        <form id="delete-journey" method="POST" action="{% url 'JourneyMap_journeys_delete' %}">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{% trans 'Delete Journey' %}</legend>
+                <input type="hidden" name="id">
+                <p>{% trans 'Are you sure that you want to delete this journey?' %}</p>
+            </fieldset>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-outline-secondary btn-left" type="submit">{% trans 'Confirm' %}</button>
+                <button id="close-delete" class="btn btn-sm btn-outline-secondary btn-right" type="button">{% trans 'Cancel' %}</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -73,10 +83,29 @@
         document.body.classList.add('no-scroll');
     });
 
-    document.getElementById('close').addEventListener('click', function() {
+    document.getElementById('close-add').addEventListener('click', function() {
         document.querySelector('.add-journey').style.display = 'none';
         document.body.classList.remove('no-scroll');
         document.getElementById('add-journey').reset();
+    });
+
+    deleteButtons = document.getElementsByClassName('delete');
+    for (var i = 0; i < deleteButtons.length; i++) {
+        id = parseInt(deleteButtons[i].name);
+        deleteButtons[i].addEventListener('click', function() {
+            console.log(id);
+            form = document.getElementById('delete-journey');
+            form.querySelector('[name="id"]').value = id;
+
+            document.querySelector('.delete-journey').style.display = 'flex';
+            document.body.classList.add('no-scroll');
+        });
+    }
+
+    document.getElementById('close-delete').addEventListener('click', function() {
+        document.querySelector('.delete-journey').style.display = 'none';
+        document.body.classList.remove('no-scroll');
+        document.getElementById('delete-journey').reset();
     });
 
     slideShows = document.getElementsByClassName('carousel');
@@ -86,7 +115,7 @@
         slideShowImages[i] = slideShows[i].getElementsByClassName('card-img-top');
 
     const nextImageDelay = 5000;
-    let imageCounters = new Array(slideShows.length).fill(0);
+    imageCounters = new Array(slideShows.length).fill(0);
 
     for (var i = 0; i < slideShows.length; i++) {
         slideShowImages[i].item(imageCounters[i]).style.display = 'block';

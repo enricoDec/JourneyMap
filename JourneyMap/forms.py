@@ -16,6 +16,12 @@ class AddJourneyForm(ModelForm):
         fields = ['title']
 
 
+class DeleteJourneyForm(ModelForm):
+    class Meta:
+        model = Journey
+        fields = ['id']
+
+
 class ImageForm(ModelForm):
     class Meta:
         model = Image
