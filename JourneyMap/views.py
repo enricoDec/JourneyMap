@@ -155,23 +155,6 @@ class JourneyListView(LoginRequiredMixin, ListView):
         return context
 
 
-class JourneyCreateView(LoginRequiredMixin, CreateView):
-    model = Journey
-    fields = ['title']
-    template_name = 'JourneyMap/journey_form.html'
-    success_url = ''
-
-    def form_valid(self, form):
-        form.instance.user_id = self.request.user.id
-        return super(JourneyCreateView, self).form_valid(form)
-
-
-class JourneyDeleteView(LoginRequiredMixin, DeleteView):
-    model = Journey
-    template_name = 'JourneyMap/journey_delete.html'
-    success_url = ''
-
-
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
     form_class = ImageForm
