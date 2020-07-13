@@ -1,16 +1,32 @@
 from django.contrib import messages
 from django.core.mail import BadHeaderError
 from django.core.mail import EmailMessage
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core import mail
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.template.defaultfilters import register
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.translation import gettext as _
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
+from django.views.generic import ListView, CreateView, DeleteView
 
-from .forms import ContactForm
+import logging
+
+from .forms import ContactForm, ImageForm, AddJourneyForm
+from .models import Journey, Image
 
 
 def home(request):
+    journeys = None
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user)
     context = {
-        'title': _('Home')
+        'title': _('Home'),
+        'journeys': journeys,
     }
     return render(request, 'JourneyMap/home.html', context)
 
@@ -56,8 +72,102 @@ def contact(request):
     else:
         form = ContactForm
 
+    journeys = None
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user)
+
     context = {
         'title': _('Contact Us'),
-        'form': form
+        'form': form,
+        'journeys': journeys
     }
     return render(request, 'JourneyMap/contact_us.html', context)
+
+
+@register.filter
+def empty(dict):
+    return not bool(dict)
+
+
+@register.filter
+def dictvalue(dict, key):
+    return dict.get(key)
+
+
+@never_cache
+@csrf_protect
+def journeys(request):
+    if request.method == "POST":
+        form = AddJourneyForm(request.POST)
+        if form.is_valid():
+            journey = form.save(commit=False)
+            journey.user = request.user
+            journey.save()
+
+            return redirect('JourneyMap_journeys')
+    else:
+        form = AddJourneyForm()
+
+    qs = Journey.objects.filter(user_id=request.user.id)
+    images = dict();
+
+    for journey in qs:
+        images[journey.id] = Image.objects.filter(journey=journey)[0: 5]
+
+    context = {
+        'form': form,
+        'journeys': qs,
+        'images': images
+    }
+
+    return render(request, 'JourneyMap/journeys.html', context)
+
+
+def delete_journey(request):
+    if request.method == "POST":
+        qs = Journey.objects.filter(id=int(request.POST.get("id", "")))
+
+        if qs.count() is 1 and qs.first().user_id == request.user.id:
+            qs.first().delete()
+        else:
+            messages.warning(request, _('You were not allowed to delete this journey!'))
+
+        return redirect('JourneyMap_journeys')
+    else:
+        if request.user.is_authenticated:
+            return redirect('JourneyMap_journeys')
+        else:
+            return redirect('JourneyMap_home')
+
+
+class JourneyListView(LoginRequiredMixin, ListView):
+    template_name = 'JourneyMap/journeys.html'
+    context_object_name = 'journeys'
+    # order journeys by newest to oldest
+    ordering = ['-date_posted']
+
+    def get_queryset(self):
+        return Journey.objects.filter(user_id=self.request.user.id)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['images'] = Image.objects.filter(journey__user=self.request.user)
+        return context
+
+
+class ImageCreateView(LoginRequiredMixin, CreateView):
+    model = Image
+    form_class = ImageForm
+    # fields = ['journey', 'title', 'image']
+    template_name = 'JourneyMap/image_form.html'
+    success_url = ''
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user.id
+        return kwargs
+
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['form'].fields['journey'].queryset = Journey.objects.filter(user_id=self.request.user.id)
+    #     return context

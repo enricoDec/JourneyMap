@@ -1,0 +1,18 @@
+{% extends "JourneyMap/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{% trans 'Delete Journey' %}</legend>
+                <h1>Are you sure ?</h1>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">{% trans 'Confirm' %}</button>
+                <a class="btn btn-outline-secondary" href="{% url 'JourneyMap_journeys' %}">{% trans 'Cancel' %}</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

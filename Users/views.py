@@ -15,6 +15,7 @@ from django.views import View
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 
+from JourneyMap.models import Journey
 from .forms import UserRegister, ProfileUpdateForm
 from .tokens import account_activation_token
 
@@ -30,7 +31,6 @@ def sign_up(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            form.save()
 
             # One time token to confirm email
             current_site = get_current_site(request)
@@ -55,7 +55,7 @@ def sign_up(request):
 
             messages.success(request, _('Please confirm your email address to complete the registration'))
             return redirect('JourneyMap_home')
-    if request.user.is_authenticated:
+    elif request.user.is_authenticated:
         return redirect('JourneyMap_home')
     else:
         form = UserRegister()
@@ -122,10 +122,15 @@ def profile(request):
         profile_form = ProfileUpdateForm(instance=request.user.profile)
         password_form = PasswordChangeForm(request.user)
 
+    journeys = None
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user)
+
     context = {
         'title': _('Profile'),
         'profile_form': profile_form,
         'password_form': password_form,
+        'journeys': journeys
     }
     return render(request, 'Users/profile.html', context)
 

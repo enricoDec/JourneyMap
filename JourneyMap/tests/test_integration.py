@@ -1,7 +1,10 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
 from django.utils.translation import gettext as _
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.webdriver import WebDriver
+
+import time
 
 
 class SeleniumTests(StaticLiveServerTestCase):
@@ -105,3 +108,60 @@ class SeleniumTests(StaticLiveServerTestCase):
 
         # Assert no redirect
         self.assertEqual(self.selenium.title, 'Journey Map - ' + _('Contact Us'))
+
+    def test_new_journey(self):
+        url = self.live_server_url + reverse('JourneyMap_journeys')
+        self.selenium.get(url)
+
+        add_button = self.selenium.find_element_by_xpath('//div[@class="plus-card card mb-4 box-shadow"]')
+        add_form = self.selenium.find_element_by_xpath('//div[@class="modal-bg add-journey"]')
+        title_field = add_form.find_element_by_xpath('//input[@id="id_title"]')
+        submit = add_form.find_element_by_xpath('//button[@type="submit"]')
+
+        add_button.click()
+        title_field.send_keys('TestJourney')
+
+        submit.click()
+
+        self.assertIsNotNone(self.selenium.find_element_by_xpath('//p[@class="card-text"]/strong[.="TestJourney"]'))
+
+    def test_new_journey_reset_on_cancel(self):
+        url = self.live_server_url + reverse('JourneyMap_journeys')
+        self.selenium.get(url)
+
+        add_button = self.selenium.find_element_by_xpath('//div[@class="plus-card card mb-4 box-shadow"]')
+        add_form = self.selenium.find_element_by_xpath('//div[@class="modal-bg add-journey"]')
+        title_field = add_form.find_element_by_xpath('//input[@id="id_title"]')
+        cancel = add_form.find_element_by_xpath('//button[@id="close-add"]')
+
+        add_button.click()
+        title_field.send_keys('TestJourney')
+        cancel.click()
+
+        add_button.click()
+        self.assertNotEqual(title_field.get_attribute('value'), 'TestJourney')
+
+    def test_delete_journey(self):
+        url = self.live_server_url + reverse('JourneyMap_journeys')
+        self.selenium.get(url)
+
+        add_button = self.selenium.find_element_by_xpath('//div[@class="plus-card card mb-4 box-shadow"]')
+        add_form = self.selenium.find_element_by_xpath('//div[@class="modal-bg add-journey"]')
+        title_field = add_form.find_element_by_xpath('//input[@id="id_title"]')
+        submit = add_form.find_element_by_xpath('//button[@type="submit"]')
+
+        add_button.click()
+        title_field.send_keys('TestJourney')
+        submit.click()
+
+        time.sleep(15)
+
+        element = self.selenium.find_element_by_xpath('//p[@class="card-text"]/strong[.="TestJourney"]')
+        deleteButton = element.find_element_by_xpath('./../../div/div/a[3]/button')
+        delete_form = self.selenium.find_element_by_xpath('//div[@class="modal-bg delete-journey"]')
+        delete_confirm = delete_form.find_element_by_xpath('//button[@type="submit"]')
+
+        deleteButton.click()
+        delete_confirm.click()
+
+        self.assertRaises(self.selenium.find_element_by_xpath('//p[@class="card-text"]/strong[.="TestJourney"]'), NoSuchElementException)
