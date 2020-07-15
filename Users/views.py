@@ -1,12 +1,13 @@
 from django.contrib import messages
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model
+from django.contrib.auth import logout
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.translation import gettext as _
@@ -30,20 +31,32 @@ def sign_up(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            form.save()
 
-            # Send an email
-            mail_subject = 'Activate your account.'
+            # One time token to confirm email
             current_site = get_current_site(request)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = account_activation_token.make_token(user)
-            activation_link = "{0}/activate/{1}/{2}".format(current_site, uid, token)
-            message = "Hello {0},\n {1}".format(user.username, activation_link)
+            activation_link = "http://{0}/activate/{1}/{2}".format(current_site, uid, token)
+
+            context_email = {
+                'subject': 'Activate your account',
+                'link': activation_link,
+                'name': user.first_name + ' ' + user.last_name,
+            }
+
+            # Send an email with html template
             to_email = form.cleaned_data.get('email')
-            email = EmailMessage(mail_subject, message, to=[to_email])
-            email.send()
+            html_email = 'Users/sign_up_email.html'
+            html_message = render_to_string(html_email, context_email)
+
+            message = EmailMessage(_('Activate your account'), html_message, 'auth@journey-map.eu', [to_email])
+            message.content_subtype = 'html'
+            message.send()
+
             messages.success(request, _('Please confirm your email address to complete the registration'))
-            return render(request, 'Users/sign_up_confirm_email.html')
+            return redirect('JourneyMap_home')
+    elif request.user.is_authenticated:
+        return redirect('JourneyMap_home')
     else:
         form = UserRegister()
 
@@ -54,6 +67,14 @@ def sign_up(request):
     return render(request, 'Users/sign_up.html', context)
 
 
+@never_cache
+@csrf_protect
+def sign_out(request):
+    logout(request)
+    messages.success(request, _('You have been successfully logged out!'))
+    return redirect('JourneyMap_home')
+
+
 class ActivateUser(View):
     def get(self, request, uidb64, token):
         try:
@@ -62,21 +83,15 @@ class ActivateUser(View):
         except(TypeError, ValueError, OverflowError, User.DoesNotExist):
             user = None
         if user is not None and account_activation_token.check_token(user, token):
-            # activate user and login:
+            # activate user and redirect to login:
             user.is_active = True
             user.save()
-            login(request, user)
 
+            messages.success(request, _('Activation successful!'))
             return redirect('login')
         else:
-            return HttpResponse('Activation link is invalid!')
-
-    # def post(self, request):
-    #     form = PasswordChangeForm(request.user, request.POST)
-    #     if form.is_valid():
-    #         user = form.save()
-    #         update_session_auth_hash(request, user)
-    #         return HttpResponse('Password changed successfully')
+            messages.warning(request, _('Activation link is invalid!'))
+            return redirect('JourneyMap_home')
 
 
 @login_required
@@ -84,17 +99,25 @@ class ActivateUser(View):
 @csrf_protect
 def profile(request):
     if request.method == 'POST':
-        profile_form = ProfileUpdateForm(request.POST, request.FILES,
-                                         instance=request.user.profile)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         password_form = PasswordChangeForm(request.user, request.POST)
-        if profile_form.is_valid() and password_form.is_valid():
-            profile_form.save()
-            user = password_form.save()
-            update_session_auth_hash(request, user)
-            messages.success(request, _(f'Account information Updated!'))
-            return redirect('profile')
-        else:
-            messages.error(request, 'Please correct the error below.')
+
+        if 'picture' in request.POST:
+            if profile_form.is_valid():
+                profile_form.save()
+                messages.success(request, _(f'Profile picture updated!'))
+                return redirect('profile')
+            else:
+                messages.warning(request, _('Please correct the error below.'))
+
+        elif 'password' in request.POST:
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, _(f'Password information Updated!'))
+                return redirect('profile')
+            else:
+                messages.warning(request, _('Please correct the error below.'))
     else:
         profile_form = ProfileUpdateForm(instance=request.user.profile)
         password_form = PasswordChangeForm(request.user)
@@ -110,3 +133,13 @@ def profile(request):
         'journeys': journeys
     }
     return render(request, 'Users/profile.html', context)
+
+
+def password_done(request):
+    messages.success(request, _('An email has been sent'))
+    return redirect('JourneyMap_home')
+
+
+def password_complete(request):
+    messages.success(request, _('Your password has been updated.'))
+    return redirect('login')

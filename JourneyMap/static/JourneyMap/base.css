@@ -102,6 +102,27 @@ main {
     padding: 0;
     width: 100%;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    display: inline-block;
+}
+
+.m-md-5 {
+    margin: 30px auto 48px auto !important;
+    padding: 0;
+    max-width: 700px;
+}
+
+div.alert {
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: calc(var(--header-height) + 10px);
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    min-width: 700px;
+    max-width: 700px;
+    text-align: center;
+    z-index: 1;
 }
 
 footer {
@@ -224,6 +245,13 @@ footer form .dropdown-menu small {
 
     footer form {
         display: block;
+    }
+}
+
+@media (max-width: 740px) {
+    .m-md-5 {
+        margin: 30px 20px 48px 20px !important;
+        max-width: calc(100% - 40px);
     }
 }
 
