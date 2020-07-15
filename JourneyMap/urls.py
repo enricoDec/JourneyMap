@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from .views import JourneyListView, JourneyCreateView, ImageCreateView, JourneyDeleteView, ImageDeleteView
+from .views import ImageCreateView, ImageDeleteView
 
 urlpatterns = [
     path('', views.home, name='JourneyMap_home'),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('journeys/new/images/', ImageCreateView.as_view(), name='JourneyMap_journeys_new_image'),
     path('journeys/delete/', views.delete_journey, name='JourneyMap_journeys_delete'),
     path('image/delete', ImageDeleteView.as_view(), name='JourneyMap_image_delete'),
+    path('cdp/<iid>', views.cdp, name='JourneyMap_cdp')
 ]

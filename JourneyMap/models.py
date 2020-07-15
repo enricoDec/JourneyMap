@@ -1,3 +1,5 @@
+import uuid
+
 from PIL import Image as Img
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -7,6 +9,8 @@ from django.utils import timezone
 
 # Journey model each journey has a user, title and creation date
 # Each Journey can have * Image
+from WebApplication import settings
+from imageAPI.ImageAnalysis import ImageAnalysis
 
 
 class Journey(models.Model):
@@ -43,7 +47,10 @@ class Image(models.Model):
             return self.id.__str__()
 
     def get_absolute_url(self):
-        return reverse('JourneyMap_journeys')
+        if self.image.url.startswith('\\media') or self.image.url.startswith('/media'):
+            return self.image.url[6:]
+        else:
+            return self.image.url
 
     def save(self, *args, **kwargs):
         image_analysis = ImageAnalysis(self.image)

@@ -14,7 +14,7 @@
                         {% if imagelist %}
                         <div class="carousel">
                             {% for image in imagelist %}
-                            <img class="card-img-top" data-src="" style="height: 225px; width: 100%;" src="{{image.image}}" data-holder-rendered="true">
+                            <img class="card-img-top" data-src="" style="height: 225px; width: 100%;" src="/cdp/{{image.id}}" data-holder-rendered="true">
                             {% endfor %}
                         </div>
                         {% else %}
@@ -91,11 +91,9 @@
 
     deleteButtons = document.getElementsByClassName('delete');
     for (var i = 0; i < deleteButtons.length; i++) {
-        id = parseInt(deleteButtons[i].name);
         deleteButtons[i].addEventListener('click', function() {
-            console.log(id);
             form = document.getElementById('delete-journey');
-            form.querySelector('[name="id"]').value = id;
+            form.querySelector('input[name="id"]').value = this.name;
 
             document.querySelector('.delete-journey').style.display = 'flex';
             document.body.classList.add('no-scroll');
