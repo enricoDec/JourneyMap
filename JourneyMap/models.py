@@ -1,5 +1,3 @@
-import uuid
-
 from PIL import Image as Img
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -48,14 +46,13 @@ class Image(models.Model):
         return reverse('JourneyMap_journeys')
 
     def save(self, *args, **kwargs):
-        super(Image, self).save()
-        image = Img.open(self.image.path)
+        image_analysis = ImageAnalysis(self.image)
+        labels = image_analysis.get_minial_exif_label()
 
-        # Resize Profile Pic if too big
-        if image.height > 1920 or image.width > 1080:
-            output_size = (1920, 1080)
-            image.thumbnail(output_size)
-            image.save(self.image.path)
+        self.latitude = labels['lat']
+        self.longitude = labels['long']
+        self.date_taken = labels['date']
+        super(Image, self).save()
 
     def delete(self, using=None, keep_parents=False):
         # os.remove(self.image.path)

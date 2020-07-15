@@ -1,84 +1,59 @@
-body {
-  background: #fafafa;
-  color: #333333;
-  margin-top: 5rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #444444;
-}
-
-ul {
-  margin: 0;
-}
-
-.bg-steel {
-  background-color: #5f788a;
-}
-
-.site-header .navbar-nav .nav-link {
-  color: #cbd5db;
-}
-
-.site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
-}
-
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
+main {
+    margin: 0 !important;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: inline-block;
 }
 
 .content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
 
-.article-title {
-  color: #444444;
+.m-md-5 {
+    margin: 30px auto 48px auto !important;
+    padding: 0;
+    max-width: 700px;
 }
 
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
+.container {
+    padding-top: 18px;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 700px !important;
+    max-width: 700px !important;
 }
 
-.article-content {
-  white-space: pre-line;
+div.alert {
+    margin: 12px auto 12px auto !important;
+    min-width: 700px !important;
+    max-width: 700px !important;
+    text-align: center;
 }
 
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
+div.alert ul {
+    padding: 0;
+    list-style-type: none;
 }
 
-.article-metadata {
-  padding-bottom: 1px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
-}
+@media (max-width: 740px) {
+    .m-md-5 {
+        margin: 30px 20px 48px 20px !important;
+    }
 
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
-}
+    .container {
+        min-width: calc(100% - 40px) !important;
+        max-width: calc(100% - 40px) !important;
+    }
 
-.article-svg {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
+    div.alert {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 }
