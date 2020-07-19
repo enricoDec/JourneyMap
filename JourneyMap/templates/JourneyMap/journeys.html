@@ -28,7 +28,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href=""><button type="button" class="btn btn-sm btn-outline-secondary btn-left">View</button></a>
-                                <a href=""><button type="button" class="btn btn-sm btn-outline-secondary btn-middle">Edit</button></a>
+                                <a href="{% url 'JourneyMap_journey' jid=journey.id %}"><button type="button" class="btn btn-sm btn-outline-secondary btn-middle">Edit</button></a>
                                 <button name="{{journey.id}}" type="button" class="delete btn btn-sm btn-outline-secondary btn-right">Delete</button>
                             </div>
                             <small class="text-muted">9 min</small>

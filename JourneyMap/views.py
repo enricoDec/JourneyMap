@@ -154,6 +154,17 @@ def cdp(request, iid):
     return HttpResponse('')
 
 
+def journey(request, jid):
+    if request.method == "GET":
+        qs = Image.objects.filter(journey_id=int(jid))
+
+        context = {
+            'images': qs
+        }
+
+        return render(request, 'JourneyMap/journey.html', context)
+
+
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
     form_class = ImageForm
