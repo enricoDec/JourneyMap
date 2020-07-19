@@ -21,6 +21,25 @@ from WebApplication import settings
 from .forms import ContactForm, ImageForm, AddJourneyForm
 from .models import Journey, Image
 
+import logging, logging.config
+import sys
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+        }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO'
+    }
+}
+
+logging.config.dictConfig(LOGGING)
+
 
 def home(request):
     journeys = None
@@ -155,14 +174,45 @@ def cdp(request, iid):
 
 
 def journey(request, jid):
-    if request.method == "GET":
-        qs = Image.objects.filter(journey_id=int(jid))
+    if request.method == "POST":
+        form = ImageForm(request.POST, request.FILES)
+        if request.user.is_authenticated:
+            form.user = request.user
+            if form.is_valid():
+                image = form.save(commit=False)
+                image.title = os.path.basename(image.image.url).lower()
+                logging.info(image.upload_image(image.title))
+                upload_file(request.FILES['image'], image.get_file_path(), image.title)
+                image.save()
 
-        context = {
-            'images': qs
-        }
 
-        return render(request, 'JourneyMap/journey.html', context)
+        return redirect('JourneyMap_journey', jid)
+
+    else:
+        form = ImageForm()
+
+    form.fields['journey'].initial = jid
+
+    qs = Image.objects.filter(journey_id=int(jid))
+
+    context = {
+        'form': form,
+        'images': qs
+    }
+
+    return render(request, 'JourneyMap/journey.html', context)
+
+
+def upload_file(f, path, filename):
+    logging.info(os.path.join(settings.MEDIA_ROOT, path))
+    logging.info(os.path.join(settings.MEDIA_ROOT, path, filename))
+
+    if not os.path.exists(settings.MEDIA_ROOT + '/' + path):
+        os.makedirs(settings.MEDIA_ROOT + '/' + path)
+
+    with open(os.path.join(settings.MEDIA_ROOT, path, filename), 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
 
 
 class ImageCreateView(LoginRequiredMixin, CreateView):

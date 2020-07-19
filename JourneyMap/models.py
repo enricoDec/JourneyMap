@@ -1,4 +1,5 @@
 import uuid
+import os
 
 from PIL import Image as Img
 from django.contrib.auth import get_user_model
@@ -11,6 +12,25 @@ from django.utils import timezone
 # Each Journey can have * Image
 from WebApplication import settings
 from imageAPI.ImageAnalysis import ImageAnalysis
+
+import logging, logging.config
+import sys
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+        }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO'
+    }
+}
+
+logging.config.dictConfig(LOGGING)
 
 
 class Journey(models.Model):
@@ -27,7 +47,7 @@ class Journey(models.Model):
 
 class Image(models.Model):
     def upload_image(self, filename):
-        return 'journeys/' + self.journey.user_id.__str__() + '/' + filename
+        return self.journey.user_id.__str__() + '/' + self.journey.id.__str__() + '/' + filename
 
     def createMaskedUrl(self, filename):
         return
@@ -52,8 +72,13 @@ class Image(models.Model):
         else:
             return self.image.url
 
+    def get_file_path(self):
+        return os.path.join(self.journey.user_id.__str__(), self.journey.id.__str__())
+
     def save(self, *args, **kwargs):
-        image_analysis = ImageAnalysis(self.image)
+        logging.info(settings.MEDIA_ROOT + '/' + self.get_file_path() + '/' + self.title)
+        self.image = os.path.join(self.get_file_path(), self.title)
+        image_analysis = ImageAnalysis(settings.MEDIA_ROOT + '/' + self.get_file_path() + '/' + self.title)
         labels = image_analysis.get_minial_exif_label()
 
         self.latitude = labels['lat']
