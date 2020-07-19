@@ -127,7 +127,7 @@ def delete_journey(request):
     if request.method == "POST":
         qs = Journey.objects.filter(id=int(request.POST.get("id", "")))
 
-        if qs.count() is 1 and qs.first().user_id == request.user.id:
+        if qs.count() == 1 and qs.first().user_id == request.user.id:
             qs.first().delete()
         else:
             messages.warning(request, _('You were not allowed to delete this journey!'))
