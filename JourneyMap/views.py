@@ -1,3 +1,5 @@
+import os
+
 from django.contrib import messages
 from django.core.mail import BadHeaderError
 from django.core.mail import EmailMessage
@@ -13,9 +15,9 @@ from django.utils.translation import gettext as _
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import ListView, CreateView, DeleteView
+from django.core.files.storage import default_storage
 
-import logging
-
+from WebApplication import settings
 from .forms import ContactForm, ImageForm, AddJourneyForm
 from .models import Journey, Image
 
@@ -109,7 +111,7 @@ def journeys(request):
         form = AddJourneyForm()
 
     qs = Journey.objects.filter(user_id=request.user.id)
-    images = dict();
+    images = dict()
 
     for journey in qs:
         images[journey.id] = Image.objects.filter(journey=journey)[0: 5]
@@ -125,7 +127,7 @@ def journeys(request):
 
 def delete_journey(request):
     if request.method == "POST":
-        qs = Journey.objects.filter(id=int(request.POST.get("id", "")))
+        qs = Journey.objects.filter(id=int(request.POST.get("id")))
 
         if qs.count() == 1 and qs.first().user_id == request.user.id:
             qs.first().delete()
@@ -140,19 +142,16 @@ def delete_journey(request):
             return redirect('JourneyMap_home')
 
 
-class JourneyListView(LoginRequiredMixin, ListView):
-    template_name = 'JourneyMap/journeys.html'
-    context_object_name = 'journeys'
-    # order journeys by newest to oldest
-    ordering = ['-date_posted']
+def cdp(request, iid):
+    qs = Image.objects.filter(id=int(iid))
 
-    def get_queryset(self):
-        return Journey.objects.filter(user_id=self.request.user.id)
+    if request.user.is_authenticated and qs.count() == 1:
+        if qs.first().journey.user.id == request.user.id:
+            image = qs.first()
+            image_data = open(settings.MEDIA_ROOT + image.get_absolute_url(), 'rb').read()
+            return HttpResponse(image_data, content_type='image/jpeg')
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['images'] = Image.objects.filter(journey__user=self.request.user)
-        return context
+    return HttpResponse('')
 
 
 class ImageCreateView(LoginRequiredMixin, CreateView):
@@ -167,7 +166,8 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
         kwargs['user'] = self.request.user.id
         return kwargs
 
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['form'].fields['journey'].queryset = Journey.objects.filter(user_id=self.request.user.id)
-    #     return context
+
+class ImageDeleteView(LoginRequiredMixin, DeleteView):
+    model = Image
+    template_name = 'JourneyMap/image_delete.html'
+    success_url = ''
