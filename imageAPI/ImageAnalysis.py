@@ -99,7 +99,12 @@ class ImageAnalysis:
     def get_minial_exif_label(self):
         """Get a minial list of exif data"""
         # Format to Django date convention
-        location = self.get_coordinates()
+        location = 0.0000, 0.0000
+        try:
+            location = self.get_coordinates()
+        except Exception:
+            pass
+
         date = self.get_time_created()
         year, time = date.split()
         year = year.replace(':', '-')
