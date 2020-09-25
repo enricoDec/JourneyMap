@@ -1,4 +1,6 @@
 import os
+import traceback
+from json import dumps
 
 from django.contrib import messages
 from django.core.mail import BadHeaderError
@@ -6,6 +8,7 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import mail
 from django.core.mail import send_mail, BadHeaderError
+from django.forms.models import modelformset_factory
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.defaultfilters import register
@@ -16,12 +19,18 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import ListView, CreateView, DeleteView
 from django.core.files.storage import default_storage
+from folium.utilities import iter_coords, none_min, none_max
 
 from WebApplication import settings
 from .forms import ContactForm, ImageForm, AddJourneyForm
 from .models import Journey, Image
 
 import logging, logging.config
+
+import folium
+#from folium.utilities import get_bounds
+
+import statistics
 import sys
 
 LOGGING = {
@@ -43,13 +52,44 @@ logging.config.dictConfig(LOGGING)
 
 def home(request):
     journeys = None
+
     if request.user.is_authenticated:
         journeys = Journey.objects.filter(user_id=request.user)
+
     context = {
         'title': _('Home'),
         'journeys': journeys,
     }
+
     return render(request, 'JourneyMap/home.html', context)
+
+
+def privacy_policy(request):
+    journeys = None
+
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user)
+
+    context = {
+        'title': _('Home'),
+        'journeys': journeys,
+    }
+
+    return render(request, 'JourneyMap/privacy_policy.html', context)
+
+
+def legal_disclosures(request):
+    journeys = None
+
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user)
+
+    context = {
+        'title': _('Home'),
+        'journeys': journeys,
+    }
+
+    return render(request, 'JourneyMap/legal_disclosures.html', context)
 
 
 def contact(request):
@@ -175,28 +215,30 @@ def cdp(request, iid):
 
 def journey(request, jid):
     if request.method == "POST":
-        form = ImageForm(request.POST, request.FILES)
         if request.user.is_authenticated:
+            form = ImageForm(request.POST, request.FILES)
             form.user = request.user
+            logging.info(request.FILES)
+
             if form.is_valid():
                 image = form.save(commit=False)
+                image.journey = Journey.objects.get(id=jid)
                 image.title = os.path.basename(image.image.url).lower()
                 logging.info(image.upload_image(image.title))
                 upload_file(request.FILES['image'], image.get_file_path(), image.title)
                 image.save()
 
-
         return redirect('JourneyMap_journey', jid)
 
-    else:
-        form = ImageForm()
-
-    form.fields['journey'].initial = jid
+    journeys = None
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user.id)
 
     qs = Image.objects.filter(journey_id=int(jid))
 
     context = {
-        'form': form,
+        'journeys': journeys,
+        'journey': jid,
         'images': qs
     }
 
@@ -213,6 +255,28 @@ def upload_file(f, path, filename):
     with open(os.path.join(settings.MEDIA_ROOT, path, filename), 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
+
+
+def map(request, jid):
+    journeys = None
+    if request.user.is_authenticated:
+        journeys = Journey.objects.filter(user_id=request.user.id)
+
+    images = Image.objects.all().order_by('date_taken').filter(journey_id=jid)
+    data = [[int(image.id), [float(image.latitude), float(image.longitude)]] for image in images if image.latitude != float(404.0000) and image.longitude != float(404.0000)]
+
+    context = {
+        'title': Journey.objects.get(id=jid).title,
+        'all_images': len(images),
+        'images': len(data),
+        'data': dumps(data),
+        'jc': len(journeys),
+        'user': request.user,
+        'journeys': journeys,
+        "no_footer": True
+    }
+
+    return render(request, 'JourneyMap/map.html', context)
 
 
 class ImageCreateView(LoginRequiredMixin, CreateView):

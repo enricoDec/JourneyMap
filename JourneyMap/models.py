@@ -49,9 +49,6 @@ class Image(models.Model):
     def upload_image(self, filename):
         return self.journey.user_id.__str__() + '/' + self.journey.id.__str__() + '/' + filename
 
-    def createMaskedUrl(self, filename):
-        return
-
     journey = models.ForeignKey(Journey, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, null=True, blank=True)
     upload_date = models.DateTimeField(default=timezone.now)
