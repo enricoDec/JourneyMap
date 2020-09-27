@@ -1,6 +1,14 @@
+:root {
+    --plus-size: 100px;
+}
+
 html, body {
     height: 100%;
     background-color: #f8f9fa !important;
+}
+
+.album {
+    padding-horizontal: 0 !important;
 }
 
 .exif-data {
@@ -49,6 +57,47 @@ html, body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.col-md-4 {
+    min-height: 225px !important;
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.plus-card {
+    cursor: pointer;
+    height: calc(100% - 24px);
+}
+
+.plus-card::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #475059;
+    width: 5px;
+    margin-left: -2.5px;
+    left: 50%;
+    top: calc((100% - var(--plus-size)) / 2);
+    bottom: calc((100% - var(--plus-size)) / 2);
+    z-index: 9;
+    border-radius: 2px;
+}
+
+.plus-card::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #475059;
+    height: 5px;
+    margin-top: -2.5px;
+    top: 50%;
+    left: calc((100% - var(--plus-size)) / 2);
+    right: calc((100% - var(--plus-size)) / 2);
+    z-index: 9;
+    border-radius: 2px;
 }
 
 @media (max-width: 799px) {

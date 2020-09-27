@@ -23,8 +23,8 @@
         <title>Journey Map</title>
     {% endif %}
 </head>
-<body>    
-<script src="{% static 'JourneyMap/jquery-3.5.1.slim.js' %}"></script>
+<body>
+<script src="{% static 'JourneyMap/jquery.min.js' %}"></script>
 <header class="site-header">
     <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -50,10 +50,10 @@
                            aria-expanded="false">{% trans "My Journey" %}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
                             {% for journey in journeys %}
-                                {% if Journey.user_id == user.user_id %}
+                                {% if journey.user_id == user.id %}
                                     {% if forloop.counter < 4 %}
                                         <a class="dropdown-item"
-                                           href="#">{{ journey.title }}</a>
+                                           href="{% url 'JourneyMap_journey' jid=journey.id %}">{{ journey.title }}</a>
                                     {% endif %}
                                 {% endif %}
                             {% endfor %}
@@ -105,6 +105,7 @@
     </div>
     {% block content %} {% endblock content %}
 </main>
+{% if not no_footer%}
 <footer>
     <hr>
     <!-- Navbar Language selector -->
@@ -126,11 +127,12 @@
     </form>
     <p>&copy My Journey 2020-2020</p>
     <div class="">
-        <a href="">{% trans "Privacy Policy" %}</a>
-        <a href="">{% trans "Legal Disclosures" %}</a>
+        <a href="{% url 'JourneyMap_privacy_policy' %}">{% trans "Privacy Policy" %}</a>
+        <a href="{% url 'JourneyMap_legal_disclosures' %}">{% trans "Legal Disclosures" %}</a>
         <a href="https://matias.ma/nsfw/">{% trans "." %}</a>
     </div>
 </footer>
+{% endif %}
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'JourneyMap/popper_1.12.9.js' %}"></script>

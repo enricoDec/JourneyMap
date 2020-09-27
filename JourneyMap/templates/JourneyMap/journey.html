@@ -27,18 +27,33 @@
                 </div>
             </div>
             {% endfor %}
-            <form id="add-journey" method="POST">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">{% trans 'Add Image' %}</legend>
-                    {{ form.as_p }}
-                </fieldset>
-                <div class="btn-group">
-                    <button class="btn btn-sm btn-outline-secondary btn-left" type="submit">{% trans 'Save' %}</button>
-                    <button id="close-add" class="btn btn-sm btn-outline-secondary btn-right" type="button">{% trans 'Cancel' %}</button>
-                </div>
-            </form>
+            <div class="col-md-4">
+                <div id="add-images" class="plus-card card mb-4 box-shadow"></div>
+            </div>
+            <input  id="file-input" type="file" name="image" multiple style="display: none;"
+                    data-url="{% url 'JourneyMap_journey' jid=journey %}"
+                    data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
         </div>
     </div>
 </div>
+
+<script src="{% static 'JourneyMap/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'JourneyMap/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'JourneyMap/jquery.fileupload.js' %}"></script>
+
+<script>
+    $(function() {
+        var add_image_button = document.getElementById('add-images');
+
+        add_image_button.addEventListener('click', function() {
+            $('#file-input').click();
+        });
+
+        $('#file-input').fileupload({
+            done: function(e, data) {
+                console.log("done");
+            }
+        });
+    });
+</script>
 {% endblock content %}

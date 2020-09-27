@@ -1,0 +1,41 @@
+{% extends "JourneyMap/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'JourneyMap/map.css' %}">
+<div id="map">
+</div>
+
+<div id="info">
+    <div class="data">
+        <div class="row">
+            <p class="column-1"><strong>{% trans 'Title' %}</strong></p>
+            <p class="column-2">{{ title }}</p>
+        </div>
+        <div class="row">
+            <p class="column-1"><strong>{% trans 'Images' %}</strong></p>
+            <p class="column-2">{{ all_images }}({{ images }})</p>
+        </div>
+        <div class="row">
+            <p class="column-1"><strong>{% trans 'Distance' %}</strong></p>
+            <p id="distance-paragraph" class="column-2"></p>
+        </div>
+    </div>
+</div>
+
+<div id="popup">
+</div>
+
+<script src="{% static 'JourneyMap/leaflet.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+<link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css">
+<script src="{% static 'JourneyMap/map.js' %}"></script>
+
+<script>
+    create_map("{{data|escapejs}}")
+</script>
+
+{% endblock content %}

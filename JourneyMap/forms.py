@@ -25,11 +25,9 @@ class DeleteJourneyForm(ModelForm):
 class ImageForm(ModelForm):
     class Meta:
         model = Image
-        fields = ['journey', 'image']
+        fields = ['image']
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
-        # restrict journeys to current user journeys
-        #self.fields['journey'].queryset = self.fields['journey'].queryset.filter(user=user)
