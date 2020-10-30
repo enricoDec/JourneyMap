@@ -23,6 +23,7 @@ from Users import views as user_view
 from Users.forms import UserLogin
 
 urlpatterns = [
+    path('captcha/', include('captcha.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
     path('register/', user_view.sign_up, name='register'),

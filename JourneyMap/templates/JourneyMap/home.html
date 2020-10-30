@@ -12,33 +12,33 @@
              style="background-image: linear-gradient(to right, #f8f9fa80, #f8f9fa80), url('{% static 'JourneyMap/img/home-background.png' %}')">
             <div class="col-md-5 p-lg-5 mx-auto my-5">
                 <h1 class="display-4 font-weight-normal">Journey Map</h1>
-                <p class="lead font-weight-normal">{% trans 'Description' %}</p>
                 {% if user.is_authenticated %}
-                <a class="btn btn-outline-secondary" href="{% url 'JourneyMap_journeys' %}">{% trans 'Go to your journey' %}</a>
+                    <a class="btn btn-outline-secondary"
+                       href="{% url 'JourneyMap_journeys' %}">{% trans 'Go to your journey' %}</a>
                 {% else %}
-                <a class="btn btn-outline-secondary" href="{% url 'login' %}">{% trans 'Start your journey' %}</a>
+                    <a class="btn btn-outline-secondary" href="{% url 'login' %}">{% trans 'Start your journey' %}</a>
                 {% endif %}
             </div>
         </div>
         <!-- <div class="triangle"></div>-->
-        <h3>{% trans 'FEATURES'  %}</h3>
+        <h3>{% trans 'FEATURES' %}</h3>
+        <p class="text-md-center font-weight-bold">{% trans 'Upload images of your journeys to visualize them on a map!' %}</p>
         <div class="features">
             <div class="feature">
                 <img src="{% static 'JourneyMap/img/journey.png' %}" srcset="" alt="">
-                <p><strong>{% trans "Create Journeys" %}</strong>{% trans "Create journeys and upload images."  %}</p>
+                <p><strong>{% trans "Create Journeys" %}</strong>{% trans "Create journeys and upload images." %}</p>
             </div>
             <div class="feature">
                 <img src="{% static 'JourneyMap/img/map.png' %}" srcset="" alt="">
-                <p><strong>{% trans 'Relive your Journeys' %}</strong>{% trans 'Relive your journeys on an interactive world map.' %}</p>
+                <p>
+                    <strong>{% trans 'Relive your Journeys' %}</strong>{% trans 'Relive your journeys on an interactive world map.' %}
+                </p>
             </div>
             <div class="feature">
                 <img src="{% static 'JourneyMap/img/share.png' %}" srcset="" alt="">
                 <p><strong>{% trans 'Share Journeys' %}</strong>{% trans 'Share your journeys with other people.' %}</p>
             </div>
         </div>
-        <!-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
-        <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
-        <!-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
     </body>
 </html>
 {% endblock content %}

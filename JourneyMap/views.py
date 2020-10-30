@@ -1,37 +1,27 @@
+import logging
+import logging.config
 import os
-import traceback
+import sys
 from json import dumps
 
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import BadHeaderError
 from django.core.mail import EmailMessage
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core import mail
-from django.core.mail import send_mail, BadHeaderError
-from django.forms.models import modelformset_factory
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.defaultfilters import register
 from django.template.loader import render_to_string
-from django.urls import reverse
 from django.utils.translation import gettext as _
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
-from django.views.generic import ListView, CreateView, DeleteView
-from django.core.files.storage import default_storage
-from folium.utilities import iter_coords, none_min, none_max
+from django.views.generic import CreateView, DeleteView
 
 from WebApplication import settings
 from .forms import ContactForm, ImageForm, AddJourneyForm
 from .models import Journey, Image
 
-import logging, logging.config
-
-import folium
-#from folium.utilities import get_bounds
-
-import statistics
-import sys
+# from folium.utilities import get_bounds
 
 LOGGING = {
     'version': 1,
@@ -71,25 +61,25 @@ def privacy_policy(request):
         journeys = Journey.objects.filter(user_id=request.user)
 
     context = {
-        'title': _('Home'),
+        'title': _('Privacy Policy'),
         'journeys': journeys,
     }
 
     return render(request, 'JourneyMap/privacy_policy.html', context)
 
 
-def legal_disclosures(request):
+def terms_of_service(request):
     journeys = None
 
     if request.user.is_authenticated:
         journeys = Journey.objects.filter(user_id=request.user)
 
     context = {
-        'title': _('Home'),
+        'title': _('Terms of Service'),
         'journeys': journeys,
     }
 
-    return render(request, 'JourneyMap/legal_disclosures.html', context)
+    return render(request, 'JourneyMap/terms_of_service.html', context)
 
 
 def contact(request):
@@ -191,7 +181,7 @@ def delete_journey(request):
         if qs.count() == 1 and qs.first().user_id == request.user.id:
             qs.first().delete()
         else:
-            messages.warning(request, _('You were not allowed to delete this journey!'))
+            messages.warning(request, _('You are not allowed to delete this journey!'))
 
         return redirect('JourneyMap_journeys')
     else:
