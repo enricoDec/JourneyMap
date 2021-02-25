@@ -1,6 +1,7 @@
 
 # JourneyMap
 A Web Application that creates a "Journey Map" from pictures.
+![Preview](../img/rsz_journey-map-2.png)
 
 # Branches/Features List:
 - Header-Footer (Home, Impressum, Navbar, Footer) :heavy_check_mark:
